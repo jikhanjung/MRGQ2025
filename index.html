@@ -242,6 +242,16 @@
             scroll-behavior: smooth;
         }
 
+        /* Scroll padding to account for fixed navigation */
+        html {
+            scroll-padding-top: 80px;
+        }
+
+        /* Alternative method for better browser compatibility */
+        .note {
+            scroll-margin-top: 80px;
+        }
+
         /* Responsive Navigation */
         @media (max-width: 768px) {
             .nav-links {
