@@ -25,7 +25,7 @@ Pursues 100% in everything: guitar, piano, research, cooking, and housework.
 ### Oh Yejin
 Global Category Master, CJ CheilJedang. Develops various processed foods including Hetbahn.
 Miryeon's ace. Miryeon's voice of truth.
-The only one who can sometimes stop the team leader's runaway train. A person who lives sincerely.
+Since a few years ago, she has been growing crops instead of her fully grown daughters.
 
 ## Staff
 
@@ -37,4 +37,4 @@ In charge of concert planning, liaison, promotion, and fundraising for Miryeon.
 ### Jeong Jikhan
 Paleontologist who studies very old things dug up from the ground.
 Enjoys kicking balls and making delicious food to share with others.
-In charge of Miryeon's meals and various support tasks.
+In charge of Miryeon's technical systems including sheet music system, photo and video recording, audio recording, and editing.
