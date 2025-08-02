@@ -202,7 +202,7 @@ def generate_program_notes_html(notes, is_english=False):
                     # 영어 버전에서는 부제목을 표시하지 않음 (이미 메인 제목이 영어이므로)
                     if not is_english:
                         english_title = paragraph.strip()[3:].strip()
-                        paragraph_html.append(f'                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">{english_title}</h4>')
+                        paragraph_html.append(f'                <h4 style="color: #8b6f3a; margin-top: -10px; margin-bottom: 20px; font-weight: 400; font-style: italic;">{english_title}</h4>')
                 else:
                     # 마크다운 이탤릭 변환: *(by 작성자)* -> <em>(by 작성자)</em>
                     paragraph = re.sub(r'\*(.*?)\*', r'<em>\1</em>', paragraph.strip())
@@ -335,10 +335,19 @@ def generate_program_html(program, is_english=False):
             for piece in pieces:
                 # 곡목에 해당하는 ID가 있으면 링크 생성
                 piece_id = piece_to_id.get(piece)
-                if piece_id:
-                    html_parts.append(f'                        <li>• <a href="#{piece_id}" class="program-link">{piece}</a></li>')
+                
+                # 작곡가와 곡목 분리 (쉼표로 구분)
+                if ', ' in piece:
+                    composer, title = piece.split(', ', 1)
+                    if piece_id:
+                        html_parts.append(f'                        <li>• <a href="#{piece_id}" class="program-link"><span style="color: #4a2c1a;">{composer}</span>, <span style="color: #8b6f3a; font-style: italic;">{title}</span></a></li>')
+                    else:
+                        html_parts.append(f'                        <li>• <span style="color: #4a2c1a;">{composer}</span>, <span style="color: #8b6f3a; font-style: italic;">{title}</span></li>')
                 else:
-                    html_parts.append(f'                        <li>• {piece}</li>')
+                    if piece_id:
+                        html_parts.append(f'                        <li>• <a href="#{piece_id}" class="program-link">{piece}</a></li>')
+                    else:
+                        html_parts.append(f'                        <li>• {piece}</li>')
             
             html_parts.append('                    </ul>')
             html_parts.append('                </div>')
@@ -364,10 +373,19 @@ def generate_program_html(program, is_english=False):
             for piece in pieces:
                 # 곡목에 해당하는 ID가 있으면 링크 생성
                 piece_id = piece_to_id.get(piece)
-                if piece_id:
-                    html_parts.append(f'                        <li>• <a href="#{piece_id}" class="program-link">{piece}</a></li>')
+                
+                # 작곡가와 곡목 분리 (쉼표로 구분)
+                if ', ' in piece:
+                    composer, title = piece.split(', ', 1)
+                    if piece_id:
+                        html_parts.append(f'                        <li>• <a href="#{piece_id}" class="program-link"><span style="color: #4a2c1a;">{composer}</span>, <span style="color: #8b6f3a; font-style: italic;">{title}</span></a></li>')
+                    else:
+                        html_parts.append(f'                        <li>• <span style="color: #4a2c1a;">{composer}</span>, <span style="color: #8b6f3a; font-style: italic;">{title}</span></li>')
                 else:
-                    html_parts.append(f'                        <li>• {piece}</li>')
+                    if piece_id:
+                        html_parts.append(f'                        <li>• <a href="#{piece_id}" class="program-link">{piece}</a></li>')
+                    else:
+                        html_parts.append(f'                        <li>• {piece}</li>')
             
             html_parts.append('                    </ul>')
             html_parts.append('                </div>')
