@@ -146,13 +146,17 @@ def generate_invitation_html(invitation_content):
     
     for paragraph in paragraphs:
         if paragraph.strip():
-            # **텍스트** -> <strong>텍스트</strong>
-            paragraph = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', paragraph)
-            # *텍스트* -> <em>텍스트</em>
-            paragraph = re.sub(r'\*(.*?)\*', r'<em>\1</em>', paragraph)
-            # 줄바꿈 처리
-            paragraph = paragraph.replace('\n', '<br>')
-            paragraph_html.append(f'                <p>{paragraph}</p>')
+            # div 태그가 있는 경우 그대로 유지
+            if '<div' in paragraph:
+                paragraph_html.append(f'                {paragraph}')
+            else:
+                # **텍스트** -> <strong>텍스트</strong>
+                paragraph = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', paragraph)
+                # *텍스트* -> <em>텍스트</em>
+                paragraph = re.sub(r'\*(.*?)\*', r'<em>\1</em>', paragraph)
+                # 줄바꿈 처리
+                paragraph = paragraph.replace('\n', '<br>')
+                paragraph_html.append(f'                <p>{paragraph}</p>')
     
     # 모든 문단을 하나의 note div 안에 넣기
     html_content = '            <div class="note">\n' + '\n'.join(paragraph_html) + '\n            </div>'
