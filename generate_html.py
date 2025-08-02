@@ -83,6 +83,10 @@ def parse_markdown_members(markdown_content):
             continue
             
         if line.startswith('## '):
+            # 섹션이 바뀔 때 이전 멤버 추가
+            if current_member and current_section in members:
+                members[current_section].append(current_member)
+                current_member = None
             current_section = line[3:].strip()
         elif line.startswith('### '):
             if current_member and current_section in members:
