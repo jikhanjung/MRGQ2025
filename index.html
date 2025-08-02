@@ -10,6 +10,7 @@
 <!-- 자동 생성됨: 2025-08-02 12:25:44 -->
 <!-- 자동 생성됨: 2025-08-02 12:29:12 -->
 <!-- 자동 생성됨: 2025-08-02 12:35:21 -->
+<!-- 자동 생성됨: 2025-08-02 12:38:23 -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -158,6 +159,15 @@
             line-height: 1.8;
             color: #555;
             text-align: justify;
+        }
+
+        /* Members section - reduce spacing between paragraphs for same person */
+        #members .note h4 + p {
+            margin-top: 8px;
+        }
+        
+        #members .note p + p {
+            margin-top: 5px;
         }
 
         /* Footer */
