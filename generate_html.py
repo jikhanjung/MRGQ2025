@@ -479,7 +479,7 @@ def update_html_template(template_content, notes, invitation_content=None, membe
         if is_english:
             members_pattern = r'(<section id="members"[^>]*>.*?<h2>Members</h2>)(.*?)(</section>)'
         else:
-            members_pattern = r'(<section id="members"[^>]*>.*?<h2>멤버 소개</h2>)(.*?)(</section>)'
+            members_pattern = r'(<section id="members"[^>]*>.*?<h2>미련 사람들</h2>)(.*?)(</section>)'
         
         def replace_members(match):
             section_start = match.group(1)
