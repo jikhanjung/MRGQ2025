@@ -1,6 +1,6 @@
 # Program Notes
 
-## Gioachino Rossini (1792-1868) - Overture to 《La Gazza Ladra》
+## Gioachino Rossini (1792-1868), Overture to 《La Gazza Ladra》
 
 I just realized while writing this - I don't know the plot of the opera "La Gazza Ladra." But that's fine. After all, only the overture is famous from this opera. (If you're curious about the plot... someone summarized it as 'the French version of Sim Cheong-jeon where a daughter saves her father.') This piece, which the genius Rossini dashed off at the height of his fame at twenty-five, overflows with his characteristic frivolity that isn't frivolous and his tedium that isn't tedious.
 
@@ -8,7 +8,7 @@ Though it would be perfect as an opening piece, it hasn't been frequently perfor
 
 <div style="text-align: right">*(by Yejin)*</div>
 
-## Johann Sebastian Bach (1685-1750) - Toccata and Fugue in D minor (BWV 565)
+## Johann Sebastian Bach (1685-1750), Toccata and Fugue in D minor (BWV 565)
 
 Who doesn't know the dramatic opening that starts with "Ti-ro-ri~"? This is Bach's most famous organ piece, and as widely known as it is, it receives varied evaluations, with some even claiming it's not Bach's work. The estimated composition date also varies, but it's generally understood to be an early work from around 1708-9. The un-Bach-like messiness and somewhat clumsy development might make you wonder "Is this really Bach?" but these are exactly the qualities you can find in Bach's early works, and they're quite charming. Moreover, the rustic melodies of these early works inevitably touch the Korean heart... Oh, among the various evaluations, I wholeheartedly agree with the assessment that "it seems like a virtuosic piece but isn't as difficult as it sounds."
 
@@ -16,7 +16,7 @@ Miryeon performed this piece with the same member composition at the Hwahyeon So
 
 <div style="text-align: right">*(by Yewan)*</div>
 
-## Jorge Cardoso (1949-) - Milonga from 《24 Piezas Sudamericanas》
+## Jorge Cardoso (1949-), Milonga from 《24 Piezas Sudamericanas》
 
 Milonga is a South American folk dance that's somewhat like the predecessor of tango. This piece is the final work in the collection of 24 South American pieces left by Argentine guitarist and composer Cardoso. Two guitars exchange South American rhythms while varying lyrical and mysterious melodies, creating an addictive piece where the main theme repeats endlessly in your head.
 
@@ -24,7 +24,7 @@ Personally, I love this kind of groove-filled duet piece, but I'd never had the 
 
 <div style="text-align: right">*(by Eunseok)*</div>
 
-## Maurice Ravel (1875-1937) - Pavane pour une infante défunte
+## Maurice Ravel (1875-1937), Pavane pour une infante défunte
 
 Ravel, the representative composer of French impressionist music, published this piano piece at age 24 while studying at the Paris Conservatory, setting enchanting melodies and harmonies to the slow dance form of pavane, and from then on became widely known to the public. Later, Ravel himself arranged it for orchestra, making the piece even more famous, and recently it's often performed as jazz, but I think the guitar arrangement version suits this piece best.
 
@@ -32,7 +32,7 @@ This is a piece that Miryeon particularly loves, and we've often put it on stage
 
 <div style="text-align: right">*(by Eunseok)*</div>
 
-## Fernando Sor (1778-1839) - Introduction and Variations on a Theme by Mozart, Op.9
+## Fernando Sor (1778-1839), Introduction and Variations on a Theme by Mozart, Op.9
 
 This most famous work by Sor is known to be based on the aria "O Cara Armonia" that appears at the end of Act I of Mozart's opera "The Magic Flute," lasting about a minute. However, in my personal opinion, this level of connection would be more like a tribute composition dedicated to Mozart - with copyright entirely belonging to Sor - rather than a revival or featuring in modern copyright terms.
 
@@ -42,7 +42,7 @@ Even when I had abundant hand strength in my twenties, I found it somehow diffic
 
 <div style="text-align: right">*(by Jinho)*</div>
 
-## Anon. / Francis Cutting (c.1550-1596) - Greensleeves
+## Anon. / Francis Cutting (c.1550-1596), Greensleeves
 
 When we think of "Guitar & Voice," it's easy to think of the guitar as simply providing accompaniment. However, in Renaissance lute songs [or airs], the instrument and voice relate to each other as equals. The guitar part of "Greensleeves" that we're performing is an arrangement by 16th-century English lutenist and composer Francis Cutting, which is a vibrant, genuine solo piece. You can think of it as the voice being laid over the guitar.
 
@@ -50,7 +50,7 @@ When we think of "Guitar & Voice," it's easy to think of the guitar as simply pr
 
 <div style="text-align: right">*(by Yewan)*</div>
 
-## Franz Schubert (1797-1828) - 《Winterreise》 Op.89 · D911, 1. Gute Nacht
+## Franz Schubert (1797-1828), 《Winterreise》 Op.89 · D911, 1. Gute Nacht
 
 "Winterreise" (Winter Journey) is a song cycle by Schubert set to poems by Wilhelm Müller. The content tells of wandering aimlessly in the middle of winter after a broken heart, expressing the wounds of love. Originally composed for tenor, it's often sung by baritone or bass in lower transpositions. As it represents the feelings of a European man in the Romantic era, it's rarely sung by women, but well, love transcends East and West, age, and gender.
 
@@ -58,7 +58,7 @@ Among the 24 songs in "Winterreise," the 5th song "Der Lindenbaum" is famous, bu
 
 <div style="text-align: right">*(by Yewan)*</div>
 
-## Heitor Villa-Lobos (1887-1959) - Bachianas Brasileiras No.5, 1. Aria (Cantilena)
+## Heitor Villa-Lobos (1887-1959), Bachianas Brasileiras No.5, 1. Aria (Cantilena)
 
 Brazil's national composer Villa-Lobos is also special in the guitar world. "Everyone has at least one Villa-Lobos piece in their heart." For me, that's this piece. Bachianas Brasileiras No.5 was composed for eight cellos and soprano, and among the two movements, the 1st movement Aria is famous. Villa-Lobos himself arranged this aria for guitar solo and soprano. A melancholic melody is laid over delicate and beautiful guitar performance. Like the sirens' song, you can't help but be captivated the moment you hear it. However, you need to sing well...
 
@@ -66,7 +66,7 @@ I didn't dare to put this piece on stage. My breathing wasn't good enough, and m
 
 <div style="text-align: right">*(by Yewan)*</div>
 
-## Al Di Meola (1954-) - The Grande Passion
+## Al Di Meola (1954-), The Grande Passion
 
 Fusion and Latin jazz guitarist and composer Al Di Meola is a name that even classical guitar enthusiasts might have heard of, thanks to his distinctive Latin-Mediterranean rhythmic composition style, unique performance technique, and collaborations with various musicians. "The Grande Passion" is the centerpiece of his 2000 album, originally a large-scale piece for guitar and orchestra concerto. We present it as a small attempt to broaden Miryeon's performance horizons.
 
@@ -74,13 +74,13 @@ Fusion and Latin jazz guitarist and composer Al Di Meola is a name that even cla
 
 <div style="text-align: right">*(by Hajin)*</div>
 
-## Manuel de Falla (1876–1946) - Spanish Dance No.1 from 《La Vida Breve》
+## Manuel de Falla (1876–1946), Spanish Dance No.1 from 《La Vida Breve》
 
 Even if you haven't seen the opera "La Vida Breve," anyone who has been exposed to classical guitar to some extent has surely heard this Spanish dance. It's an interlude from the transition in Act 2 of the opera, characterized by strong flamenco rhythms and folk melodies. It starts as a fast dance in 3/8 time, passes through a section marked pesante, ma con fuoco (heavy, but with fire), and concludes with the earlier theme again. It's a short piece of about 3 minutes and 30 seconds that ends quickly after something different appears, but for a fleeting life that comes and goes once, there's no need to rush through the performance, is there? :)
 
 <div style="text-align: right">*(by Hajin)*</div>
 
-## Isaac Albéniz (1860-1909) - Castilla (Seguidillas) from 《Suite Española》 Op.47
+## Isaac Albéniz (1860-1909), Castilla (Seguidillas) from 《Suite Española》 Op.47
 
 Albéniz was a pianist and composer from Catalonia, Spain in the late 19th century. He didn't write guitar pieces specifically, but there are many famous guitar works based on his compositions.
 
@@ -88,7 +88,7 @@ Castilla is a place name still used today because the vast central region of Spa
 
 <div style="text-align: right">*(by Jinho)*</div>
 
-## Antonín Dvořák (1841-1904) - Symphony No.9 in E minor "From the New World" Op.95, IV. Finale: Allegro con fuoco
+## Antonín Dvořák (1841-1904), Symphony No.9 in E minor "From the New World" Op.95, IV. Finale: Allegro con fuoco
 
 "From the New World" is probably the most famous work among those Dvořák left during his three years in America. The 4th movement in particular has a very impressive powerful theme reminiscent of 'Jaws.' As everyone knows, the 'New World' refers to America. When Dvořák took the position of director of the National Conservatory of Music in America, he was given the mission of becoming a cornerstone for 'establishing American music,' and he focused on embodying the ethnic characteristics of African Americans and Native Americans in symphonic form. The intense and majestic vigor felt in this piece, the raw vitality, and the melancholy hidden between them... these impressions must have been what the composer felt was American. That's what America was like 100 years ago, apparently.
 

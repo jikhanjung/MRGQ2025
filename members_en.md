@@ -9,7 +9,7 @@ Nominally the team leader, but in reality a follower rather than a leader of tea
 
 ### Yang Jinho
 Group Leader of xEV Pack Development Group, Small Business Unit, Samsung SDI.
-Automotive battery design is still interesting. Guitar doesn't interfere with work.
+Automotive battery design is still interesting. Work doesn't interfere with guitar.
 In charge of groove for Miryeon. A guitar master dreaming of transcendence.
 
 ### Cho Eunseok
