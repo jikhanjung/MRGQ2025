@@ -423,7 +423,7 @@ def update_html_template(template_content, notes, invitation_content=None, membe
     if is_english:
         program_notes_pattern = r'(<section id="program-notes"[^>]*>.*?<h2>Program Notes</h2>)(.*?)(</section>)'
     else:
-        program_notes_pattern = r'(<section id="program-notes"[^>]*>.*?<h2>프로그램 노트</h2>)(.*?)(</section>)'
+        program_notes_pattern = r'(<section id="program-notes"[^>]*>.*?<h2>곡 해설</h2>)(.*?)(</section>)'
     
     def replace_notes(match):
         section_start = match.group(1)
@@ -511,7 +511,7 @@ def main():
     notes_path = 'program_notes.md'
     invitation_path = 'invitation.md'
     members_path = 'members.md'
-    output_path = 'index.html'
+    output_path = 'index_kr.html'
     
     # 템플릿 파일 읽기
     print(f"템플릿 파일 읽는 중: {template_path}")
