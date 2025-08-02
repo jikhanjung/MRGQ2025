@@ -398,7 +398,7 @@ def generate_members_html(members, is_english=False):
                 if member['description'] and member['description'][0].strip():
                     first_desc = member['description'][0].strip()
                     html_parts.append(f'                <h4 style="margin-top: 30px; color: #4a2c1a;">{member["name"]} | <span style="font-weight: normal;">{first_desc}</span></h4>')
-                    # 나머지 설명들을 하나의 문단으로 합치기
+                    # 나머지 설명들을 하나의 문단으로 합치기 (2번째, 3번째 줄을 한 문단으로)
                     remaining_descs = [desc.strip() for desc in member['description'][1:] if desc.strip()]
                     if remaining_descs:
                         combined_desc = '<br>'.join(remaining_descs)
@@ -442,7 +442,7 @@ def update_html_template(template_content, notes, invitation_content=None, membe
         if is_english:
             program_pattern = r'(<section id="program"[^>]*>.*?<h2>Program</h2>)(.*?)(</section>)'
         else:
-            program_pattern = r'(<section id="program"[^>]*>.*?<h2>프로그램</h2>)(.*?)(</section>)'
+            program_pattern = r'(<section id="program"[^>]*>.*?<h2>순서</h2>)(.*?)(</section>)'
         
         def replace_program(match):
             section_start = match.group(1)
