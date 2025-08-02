@@ -113,9 +113,14 @@ def generate_program_notes_html(notes):
         paragraphs = note['content'].split('\n\n')
         paragraph_html = []
         
-        for paragraph in paragraphs:
+        for i, paragraph in enumerate(paragraphs):
             if paragraph.strip():
-                paragraph_html.append(f'                <p>{paragraph.strip()}</p>')
+                # 첫 번째 문단이 ###으로 시작하면 한국어 제목으로 처리
+                if i == 0 and paragraph.strip().startswith('###'):
+                    korean_title = paragraph.strip()[3:].strip()
+                    paragraph_html.append(f'                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">{korean_title}</h4>')
+                else:
+                    paragraph_html.append(f'                <p>{paragraph.strip()}</p>')
         
         note_html = f'''            <div id="{note['id']}" class="note">
                 <h3>{note['title']}</h3>
@@ -141,9 +146,9 @@ def generate_invitation_html(invitation_content):
             paragraph = re.sub(r'\*(.*?)\*', r'<em>\1</em>', paragraph)
             # 줄바꿈 처리
             paragraph = paragraph.replace('\n', '<br>')
-            html_parts.append(f'                <p>{paragraph}</p>')
+            html_parts.append(f'            <div class="note">\n                <p>{paragraph}</p>\n            </div>')
     
-    return '\n'.join(html_parts)
+    return '\n\n'.join(html_parts)
 
 
 def generate_members_html(members):
@@ -152,22 +157,22 @@ def generate_members_html(members):
     
     for section_name, member_list in members.items():
         if member_list:  # 멤버가 있는 경우에만 섹션 생성
-            html_parts.append(f'            <div class="members-section">')
+            # 섹션 제목을 note 스타일로
+            html_parts.append(f'            <div class="note">')
             html_parts.append(f'                <h3>{section_name}</h3>')
+            html_parts.append(f'            </div>')
             
             for member in member_list:
-                html_parts.append(f'                <div class="member">')
-                html_parts.append(f'                    <h4>{member["name"]}</h4>')
+                html_parts.append(f'            <div class="note">')
+                html_parts.append(f'                <h4>{member["name"]}</h4>')
                 
                 for desc in member['description']:
                     if desc.strip():
-                        html_parts.append(f'                    <p>{desc}</p>')
+                        html_parts.append(f'                <p>{desc}</p>')
                 
-                html_parts.append(f'                </div>')
-            
-            html_parts.append(f'            </div>')
+                html_parts.append(f'            </div>')
     
-    return '\n'.join(html_parts)
+    return '\n\n'.join(html_parts)
 
 
 def update_html_template(template_content, notes, invitation_content=None, members=None):
@@ -234,14 +239,23 @@ def main():
     
     # 파일 경로
     template_path = 'index.html'
+    backup_path = 'index_backup.html'
     notes_path = 'program_notes.md'
     invitation_path = 'invitation.md'
     members_path = 'members.md'
-    output_path = 'index_generated.html'
+    output_path = 'index.html'
     
-    # 템플릿 파일 읽기
-    print(f"템플릿 파일 읽는 중: {template_path}")
+    # 기존 index.html을 백업
+    print(f"기존 파일 백업 중: {template_path} -> {backup_path}")
     template_content = read_file(template_path)
+    if template_content:
+        try:
+            with open(backup_path, 'w', encoding='utf-8') as f:
+                f.write(template_content)
+            print(f"✅ 백업 완료: {backup_path}")
+        except Exception as e:
+            print(f"❌ 백업 실패: {e}")
+            return
     if template_content is None:
         return
     
