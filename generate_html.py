@@ -140,14 +140,42 @@ def generate_program_notes_html(notes):
 
 def generate_invitation_html(invitation_content):
     """초대의 말씀 내용을 HTML로 변환합니다."""
+    # div 태그가 포함된 멀티라인 블록을 먼저 찾아서 하나로 합치기
+    if '<div' in invitation_content:
+        # div 태그의 시작과 끝을 찾아서 그 사이의 모든 내용을 하나의 블록으로 처리
+        div_start = invitation_content.find('<div')
+        if div_start != -1:
+            div_end = invitation_content.find('</div>', div_start)
+            if div_end != -1:
+                # div 태그 앞의 내용
+                before_div = invitation_content[:div_start].rstrip()
+                # div 태그 전체 (여러 줄 포함)
+                div_block = invitation_content[div_start:div_end + 6]  # </div> 포함
+                # div 태그 뒤의 내용
+                after_div = invitation_content[div_end + 6:].lstrip()
+                
+                # 다시 합쳐서 문단 분할
+                if after_div:
+                    combined_content = before_div + '\n\n' + div_block + '\n\n' + after_div
+                else:
+                    combined_content = before_div + '\n\n' + div_block
+                
+                invitation_content = combined_content
+    
     # 마크다운 문단을 HTML p 태그로 변환
     paragraphs = invitation_content.split('\n\n')
     paragraph_html = []
     
     for paragraph in paragraphs:
         if paragraph.strip():
-            # div 태그가 있는 경우 그대로 유지
-            if '<div' in paragraph:
+            # div 태그가 있는 경우 HTML 블록으로 처리
+            if '<div' in paragraph and '</div>' in paragraph:
+                # **텍스트** -> <strong>텍스트</strong>
+                paragraph = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', paragraph)
+                # *텍스트* -> <em>텍스트</em>
+                paragraph = re.sub(r'\*(.*?)\*', r'<em>\1</em>', paragraph)
+                # 줄바꿈 처리
+                paragraph = paragraph.replace('\n', '<br>')
                 paragraph_html.append(f'                {paragraph}')
             else:
                 # **텍스트** -> <strong>텍스트</strong>
