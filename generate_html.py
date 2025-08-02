@@ -209,7 +209,7 @@ def generate_program_notes_html(notes, is_english=False):
                     paragraph_html.append(f'                <p>{paragraph}</p>')
         
         note_html = f'''            <div id="{note['id']}" class="note">
-                <h3>{note['title']}</h3>
+                <h3 style="color: #2c1810;">{note['title']}</h3>
 {chr(10).join(paragraph_html)}
             </div>'''
         
