@@ -108,6 +108,64 @@ def parse_markdown_members(markdown_content):
     return members
 
 
+def parse_markdown_program(markdown_content):
+    """markdown 내용을 파싱하여 콘서트 프로그램을 추출합니다."""
+    program = {'1부': [], '2부': []}
+    current_part = None
+    current_performers = None
+    current_pieces = []
+    
+    lines = markdown_content.split('\n')
+    
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+            
+        if line.startswith('## '):
+            # 이전 섹션 저장
+            if current_part and current_performers:
+                program[current_part].append({
+                    'performers': current_performers,
+                    'pieces': current_pieces.copy()
+                })
+                current_pieces = []
+            
+            section_title = line[3:].strip()
+            if section_title in ['1부', '2부']:
+                current_part = section_title
+            elif section_title == '인터미션':
+                current_part = '인터미션'
+                current_performers = None
+            
+        elif line.startswith('### '):
+            # 이전 연주자 그룹 저장
+            if current_part and current_performers and current_part != '인터미션':
+                program[current_part].append({
+                    'performers': current_performers,
+                    'pieces': current_pieces.copy()
+                })
+                current_pieces = []
+            
+            # 새 연주자 그룹
+            performers_info = line[4:].strip()
+            current_performers = performers_info
+            
+        elif line.startswith('- '):
+            # 곡목
+            piece = line[2:].strip()
+            current_pieces.append(piece)
+    
+    # 마지막 그룹 저장
+    if current_part and current_performers and current_part != '인터미션':
+        program[current_part].append({
+            'performers': current_performers,
+            'pieces': current_pieces
+        })
+    
+    return program
+
+
 def generate_program_notes_html(notes):
     """프로그램 노트들을 HTML로 변환합니다."""
     html_parts = []
@@ -192,6 +250,58 @@ def generate_invitation_html(invitation_content):
     return html_content
 
 
+def generate_program_html(program):
+    """콘서트 프로그램을 HTML로 변환합니다."""
+    html_parts = []
+    
+    # 1부
+    if '1부' in program and program['1부']:
+        html_parts.append('            <div class="program-section">')
+        html_parts.append('                <h3>제1부</h3>')
+        
+        for item in program['1부']:
+            performers = item['performers']
+            pieces = item['pieces']
+            
+            html_parts.append('                <div class="program-item">')
+            html_parts.append(f'                    <h4>{performers}</h4>')
+            html_parts.append('                    <ul>')
+            
+            for piece in pieces:
+                html_parts.append(f'                        <li>• {piece}</li>')
+            
+            html_parts.append('                    </ul>')
+            html_parts.append('                </div>')
+        
+        html_parts.append('            </div>')
+    
+    # 인터미션
+    html_parts.append('            <div class="intermission">인터미션</div>')
+    
+    # 2부
+    if '2부' in program and program['2부']:
+        html_parts.append('            <div class="program-section">')
+        html_parts.append('                <h3>제2부</h3>')
+        
+        for item in program['2부']:
+            performers = item['performers']
+            pieces = item['pieces']
+            
+            html_parts.append('                <div class="program-item">')
+            html_parts.append(f'                    <h4>{performers}</h4>')
+            html_parts.append('                    <ul>')
+            
+            for piece in pieces:
+                html_parts.append(f'                        <li>• {piece}</li>')
+            
+            html_parts.append('                    </ul>')
+            html_parts.append('                </div>')
+        
+        html_parts.append('            </div>')
+    
+    return '\n\n'.join(html_parts)
+
+
 def generate_members_html(members):
     """멤버 정보를 HTML로 변환합니다."""
     html_parts = []
@@ -222,7 +332,7 @@ def generate_members_html(members):
     return '\n\n'.join(html_parts)
 
 
-def update_html_template(template_content, notes, invitation_content=None, members=None):
+def update_html_template(template_content, notes, invitation_content=None, members=None, program=None):
     """HTML 템플릿을 업데이트합니다."""
     
     # 프로그램 노트 섹션 찾기 및 교체
@@ -239,6 +349,22 @@ def update_html_template(template_content, notes, invitation_content=None, membe
         {section_end}'''
     
     updated_content = re.sub(program_notes_pattern, replace_notes, template_content, flags=re.DOTALL)
+    
+    # 프로그램 섹션 교체
+    if program:
+        program_pattern = r'(<section id="program"[^>]*>.*?<h2>프로그램</h2>)(.*?)(</section>)'
+        
+        def replace_program(match):
+            section_start = match.group(1)
+            section_end = match.group(3)
+            new_program_html = generate_program_html(program)
+            
+            return f'''{section_start}
+            
+{new_program_html}
+        {section_end}'''
+        
+        updated_content = re.sub(program_pattern, replace_program, updated_content, flags=re.DOTALL)
     
     # 초대의 말씀 섹션 교체
     if invitation_content:
@@ -341,9 +467,20 @@ def main():
         total_members = sum(len(members) for members in members_parsed.values())
         print(f"✅ 멤버 소개 파싱 완료 (총 {total_members}명)")
     
+    # 콘서트 프로그램 파일 읽기
+    program_path = 'concert_program.md'
+    print(f"콘서트 프로그램 파일 읽는 중: {program_path}")
+    program_content = read_file(program_path)
+    
+    # 콘서트 프로그램 파싱
+    program_parsed = None
+    if program_content:
+        program_parsed = parse_markdown_program(program_content)
+        print("✅ 콘서트 프로그램 파싱 완료")
+    
     # HTML 생성
     print("HTML을 생성하는 중...")
-    generated_html = update_html_template(template_content, notes, invitation_parsed, members_parsed)
+    generated_html = update_html_template(template_content, notes, invitation_parsed, members_parsed, program_parsed)
     
     # 파일 저장
     print(f"결과 파일 저장 중: {output_path}")
