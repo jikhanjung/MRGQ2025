@@ -4,7 +4,7 @@
 
 I just realized while writing this - I don't know the plot of the opera "La Gazza Ladra." But that's fine. After all, only the overture is famous from this opera. (If you're curious about the plot... someone summarized it as 'the French version of Sim Cheong-jeon where a daughter saves her father.') This piece, which the genius Rossini dashed off at the height of his fame at twenty-five, overflows with his characteristic frivolity that isn't frivolous and his tedium that isn't tedious.
 
-Though it would be perfect as an opening piece, it hasn't been frequently performed at Hwahyeon Society concerts until now because it was difficult to express the snare drum tremolo that appears at the beginning. We plan to have our selected performer showcase brilliant tambourine technique to boldly announce the start of this concert.
+Though it would be perfect as an opening piece, it hasn't been frequently performed at Hwahyeon Society concerts until now because it was difficult to express the snare drum tremolo that appears at the beginning. We plan to have our selected performer showcase brilliant tabalet technique to boldly announce the start of this concert.
 
 <div style="text-align: right">*(by Yejin)*</div>
 
@@ -20,7 +20,7 @@ Miryeon performed this piece with the same member composition at the Hwahyeon So
 
 Milonga is a South American folk dance that's somewhat like the predecessor of tango. This piece is the final work in the collection of 24 South American pieces left by Argentine guitarist and composer Cardoso. Two guitars exchange South American rhythms while varying lyrical and mysterious melodies, creating an addictive piece where the main theme repeats endlessly in your head.
 
-Personally, I love this kind of groove-filled duet piece, but I'd never had the courage to put it on a concert program. Since it was the most memorable piece when I played with Yejin at a previous recital, I've always wanted to perform it together as a couple at a concert someday. That honey-dripping, crystalline melody. 蜜(mil), 瓏(rong), 歌(ga).
+Personally, I love this kind of groove-filled duet piece, but I'd never had the courage to put it on a concert program. Since it was the most memorable piece when I played with Yejin at a previous recital, I've always wanted to perform it together as a couple at a concert someday. That honey-dripping, crystalline melody. 蜜(mil), 瓏(long), 歌(ga).
 
 <div style="text-align: right">*(by Eunseok)*</div>
 
@@ -28,7 +28,7 @@ Personally, I love this kind of groove-filled duet piece, but I'd never had the 
 
 Ravel, the representative composer of French impressionist music, published this piano piece at age 24 while studying at the Paris Conservatory, setting enchanting melodies and harmonies to the slow dance form of pavane, and from then on became widely known to the public. Later, Ravel himself arranged it for orchestra, making the piece even more famous, and recently it's often performed as jazz, but I think the guitar arrangement version suits this piece best.
 
-This is a piece that Miryeon particularly loves, and we've often put it on stage as a trio with the team leader's arrangement, but this is the first duet since the Hwahyeon Society regular concert in 1997. There's a story that Ravel, who suffered brain damage in a traffic accident in his later years, heard this piece on the radio and exclaimed, "Whose piece is so beautiful?" We'll perform this with the late Hong Seonggak's arrangement, which beautifully brings out the original's attractive harmonies and melodies in a guitaristic way. Harmonies majestic but not heavy, melodies sad but not pitiful. (Please listen to it that way!)
+This is a piece that Miryeon particularly loves, and we've often put it on stage as a trio with the team leader's arrangement, but this is the first duet since the Hwahyeon Society regular concert in 1997. There's a story that Ravel, who suffered brain damage in a traffic accident in his later years, heard this piece on the radio and exclaimed, "Whose piece is so beautiful?" We'll perform this with the arrangement by the late Hong Seonggak sunbae-nim, which beautifully brings out the original's attractive harmonies and melodies in a guitaristic way. Harmonies majestic but not heavy, melodies sad but not pitiful. (Please listen to it that way!)
 
 <div style="text-align: right">*(by Eunseok)*</div>
 
