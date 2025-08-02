@@ -119,10 +119,10 @@ def generate_program_notes_html(notes):
         
         for i, paragraph in enumerate(paragraphs):
             if paragraph.strip():
-                # 첫 번째 문단이 ###으로 시작하면 한국어 제목으로 처리
+                # 첫 번째 문단이 ###으로 시작하면 영어 제목(부제목)으로 처리
                 if i == 0 and paragraph.strip().startswith('###'):
-                    korean_title = paragraph.strip()[3:].strip()
-                    paragraph_html.append(f'                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">{korean_title}</h4>')
+                    english_title = paragraph.strip()[3:].strip()
+                    paragraph_html.append(f'                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">{english_title}</h4>')
                 else:
                     # 마크다운 이탤릭 변환: *(by 작성자)* -> <em>(by 작성자)</em>
                     paragraph = re.sub(r'\*(.*?)\*', r'<em>\1</em>', paragraph.strip())
