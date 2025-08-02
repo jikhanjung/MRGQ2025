@@ -250,9 +250,28 @@ def generate_invitation_html(invitation_content):
     return html_content
 
 
+def create_piece_to_id_mapping():
+    """곡목을 프로그램 노트 ID로 매핑하는 사전을 생성합니다."""
+    return {
+        '조아키노 로시니, 《도둑까치》 서곡': '조아키노-로시니-도둑까치-서곡',
+        '요한 제바스티안 바흐, 토카타와 푸가 D단조 (BWV 565)': '요한-제바스티안-바흐-토카타와-푸가-d단조-bwv-565',
+        '호르헤 카르도소, 밀롱가': '호르헤-카르도소-밀롱가',
+        '모리스 라벨, 죽은 왕녀를 위한 파반느': '모리스-라벨-죽은-왕녀를-위한-파반느',
+        '페르난도 소르, 《마적》 주제에 의한 변주곡': '페르난도-소르-마적-주제에-의한-변주곡',
+        '영국 민요 / 프란시스 커팅, 그린슬리브즈': '영국-민요-프란시스-커팅-그린슬리브즈',
+        '프란츠 슈베르트, 《겨울나그네》 중 1. 안녕히': '프란츠-슈베르트-겨울나그네-중-1-안녕히',
+        '에이토르 빌라로부스, 브라질풍의 바흐 제5번, 1. 아리아': '에이토르-빌라로부스-브라질풍의-바흐-제5번-1-아리아',
+        '알 디 메올라, 그랜드 패션': '알-디-메올라-그랜드-패션',
+        '마누엘 드 파야, 《허무한 인생》 중 스페인 춤곡 제1번': '마누엘-드-파야-허무한-인생-중-스페인-춤곡-제1번',
+        '이삭 알베니스, 카스티야': '이삭-알베니스-카스티야',
+        '안토닌 드보르자크, 교향곡 제9번 "신세계로부터"': '안토닌-드보르자크-교향곡-제9번-신세계로부터'
+    }
+
+
 def generate_program_html(program):
     """콘서트 프로그램을 HTML로 변환합니다."""
     html_parts = []
+    piece_to_id = create_piece_to_id_mapping()
     
     # 1부
     if '1부' in program and program['1부']:
@@ -268,7 +287,12 @@ def generate_program_html(program):
             html_parts.append('                    <ul>')
             
             for piece in pieces:
-                html_parts.append(f'                        <li>• {piece}</li>')
+                # 곡목에 해당하는 ID가 있으면 링크 생성
+                piece_id = piece_to_id.get(piece)
+                if piece_id:
+                    html_parts.append(f'                        <li>• <a href="#{piece_id}" class="program-link">{piece}</a></li>')
+                else:
+                    html_parts.append(f'                        <li>• {piece}</li>')
             
             html_parts.append('                    </ul>')
             html_parts.append('                </div>')
@@ -292,7 +316,12 @@ def generate_program_html(program):
             html_parts.append('                    <ul>')
             
             for piece in pieces:
-                html_parts.append(f'                        <li>• {piece}</li>')
+                # 곡목에 해당하는 ID가 있으면 링크 생성
+                piece_id = piece_to_id.get(piece)
+                if piece_id:
+                    html_parts.append(f'                        <li>• <a href="#{piece_id}" class="program-link">{piece}</a></li>')
+                else:
+                    html_parts.append(f'                        <li>• {piece}</li>')
             
             html_parts.append('                    </ul>')
             html_parts.append('                </div>')
