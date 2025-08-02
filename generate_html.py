@@ -120,7 +120,9 @@ def generate_program_notes_html(notes):
                     korean_title = paragraph.strip()[3:].strip()
                     paragraph_html.append(f'                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">{korean_title}</h4>')
                 else:
-                    paragraph_html.append(f'                <p>{paragraph.strip()}</p>')
+                    # 마크다운 이탤릭 변환: *(by 작성자)* -> <em>(by 작성자)</em>
+                    paragraph = re.sub(r'\*(.*?)\*', r'<em>\1</em>', paragraph.strip())
+                    paragraph_html.append(f'                <p>{paragraph}</p>')
         
         note_html = f'''            <div id="{note['id']}" class="note">
                 <h3>{note['title']}</h3>
@@ -160,20 +162,18 @@ def generate_members_html(members):
     
     for section_name, member_list in members.items():
         if member_list:  # 멤버가 있는 경우에만 섹션 생성
-            # 섹션 제목을 note 스타일로
+            # 각 섹션(연주자/스태프)을 하나의 카드로
             html_parts.append(f'            <div class="note">')
             html_parts.append(f'                <h3>{section_name}</h3>')
-            html_parts.append(f'            </div>')
             
             for member in member_list:
-                html_parts.append(f'            <div class="note">')
-                html_parts.append(f'                <h4>{member["name"]}</h4>')
+                html_parts.append(f'                <h4 style="margin-top: 30px; color: #4a2c1a;">{member["name"]}</h4>')
                 
                 for desc in member['description']:
                     if desc.strip():
                         html_parts.append(f'                <p>{desc}</p>')
-                
-                html_parts.append(f'            </div>')
+            
+            html_parts.append(f'            </div>')
     
     return '\n\n'.join(html_parts)
 
