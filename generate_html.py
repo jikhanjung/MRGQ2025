@@ -124,6 +124,16 @@ def parse_markdown_program(markdown_content):
     current_performers = None
     current_pieces = []
     
+    # 섹션명 매핑 (영어 -> 한국어)
+    section_mapping = {
+        'Part I': '1부',
+        'Part II': '2부',
+        'Intermission': '인터미션',
+        '1부': '1부',
+        '2부': '2부',
+        '인터미션': '인터미션'
+    }
+    
     lines = markdown_content.split('\n')
     
     for line in lines:
@@ -141,9 +151,10 @@ def parse_markdown_program(markdown_content):
                 current_pieces = []
             
             section_title = line[3:].strip()
-            if section_title in ['1부', '2부']:
-                current_part = section_title
-            elif section_title == '인터미션':
+            mapped_section = section_mapping.get(section_title)
+            if mapped_section in ['1부', '2부']:
+                current_part = mapped_section
+            elif mapped_section == '인터미션':
                 current_part = '인터미션'
                 current_performers = None
             
@@ -175,7 +186,7 @@ def parse_markdown_program(markdown_content):
     return program
 
 
-def generate_program_notes_html(notes):
+def generate_program_notes_html(notes, is_english=False):
     """프로그램 노트들을 HTML로 변환합니다."""
     html_parts = []
     
@@ -188,8 +199,10 @@ def generate_program_notes_html(notes):
             if paragraph.strip():
                 # 첫 번째 문단이 ###으로 시작하면 영어 제목(부제목)으로 처리
                 if i == 0 and paragraph.strip().startswith('###'):
-                    english_title = paragraph.strip()[3:].strip()
-                    paragraph_html.append(f'                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">{english_title}</h4>')
+                    # 영어 버전에서는 부제목을 표시하지 않음 (이미 메인 제목이 영어이므로)
+                    if not is_english:
+                        english_title = paragraph.strip()[3:].strip()
+                        paragraph_html.append(f'                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">{english_title}</h4>')
                 else:
                     # 마크다운 이탤릭 변환: *(by 작성자)* -> <em>(by 작성자)</em>
                     paragraph = re.sub(r'\*(.*?)\*', r'<em>\1</em>', paragraph.strip())
@@ -300,11 +313,11 @@ def generate_program_html(program, is_english=False):
     html_parts = []
     piece_to_id = create_piece_to_id_mapping_en() if is_english else create_piece_to_id_mapping()
     
-    # 1부
-    part1_key = 'Part I' if is_english else '1부'
+    # 프로그램 데이터는 항상 한국어 키를 사용하지만 출력은 언어에 따라 다르게
+    part1_key = '1부'  # 데이터 키는 항상 한국어
     part1_title = 'Part I' if is_english else '제1부'
     intermission_text = 'Intermission' if is_english else '인터미션'
-    part2_key = 'Part II' if is_english else '2부'
+    part2_key = '2부'  # 데이터 키는 항상 한국어
     part2_title = 'Part II' if is_english else '제2부'
     
     if part1_key in program and program[part1_key]:
@@ -415,7 +428,7 @@ def update_html_template(template_content, notes, invitation_content=None, membe
     def replace_notes(match):
         section_start = match.group(1)
         section_end = match.group(3)
-        new_notes_html = generate_program_notes_html(notes)
+        new_notes_html = generate_program_notes_html(notes, is_english)
         
         return f'''{section_start}
             
