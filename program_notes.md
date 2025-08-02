@@ -1,7 +1,7 @@
 # 프로그램 노트
 
 ## 조아키노 로시니, 《도둑까치》 서곡
-### Gioachino Rossini (1792-1868) - Overture to La Gazza Ladra
+### Gioachino Rossini (1792-1868) - Overture to 《La Gazza Ladra》
 
 이 글을 쓰는 순간 깨달았다. 오페라 《도둑까치》 내용을 모른다는 것을. 그러나 괜찮다. 어차피 이 오페라는 서곡만 유명하다. (줄거리가 궁금하시다면… 어떤 분이 요약하시기를 '딸이 아버지 구하는 프랑스판 심청전'이라고 한다.) 천재 로시니가 스물다섯 살 한창 잘 나가고 있을 때 단숨에 썼다는 이 곡에는 작곡가 특유의 경박한 듯 경박하지 않은 화려함과 지루한 듯 지루하지 않은 긴장감이 넘쳐흐른다.
 
@@ -19,7 +19,7 @@
 <div style="text-align: right">*(by 예완)*</div>
 
 ## 호르헤 카르도소, 밀롱가
-### Jorge Cardoso (1949-) - Milonga from 24 Piezas Sudamericanas
+### Jorge Cardoso (1949-) - Milonga from 《24 Piezas Sudamericanas》
 
 밀롱가는 탱고의 전신쯤 되는 남미의 민속 춤곡으로, 이 곡은 아르헨티나의 기타리스트 겸 작곡가인 Cardoso가 남긴 24개의 남미 소품집 중 마지막 곡입니다. 서정적이고 신비로운 분위기의 멜로디를 변주하며 두 대의 기타가 남미 리듬을 주고받는데, 듣고 나면 메인 테마가 머릿속에서 무한 반복되는 중독성 있는 곡이지요.
 
@@ -57,7 +57,7 @@
 <div style="text-align: right">*(by 예완)*</div>
 
 ## 프란츠 슈베르트, 《겨울나그네》 중 1. 안녕히
-### Franz Schubert (1797-1828) - Winterreise Op.89 · D911, 1. Gute Nacht
+### Franz Schubert (1797-1828) - 《Winterreise》 Op.89 · D911, 1. Gute Nacht
 
 빌헬름 뮐러의 시에 슈베르트가 곡을 붙인 연가곡 《겨울나그네》. 한겨울에 실연당해 정처 없이 떠나며 사랑의 상처를 토로하는 내용이다. 원래 테너에 맞게 작곡됐지만 낮게 조옮김해서 바리톤이나 베이스가 부르는 경우도 많다. 낭만주의 시대 유럽 남자의 심정인 만큼 여성이 노래하는 경우는 흔치 않은데, 에헤라 사랑은 동서고금도 나이도 성별도 초월한다고 해 두자.
 
@@ -84,14 +84,14 @@
 <div style="text-align: right">*(by 하진)*</div>
 
 ## 마누엘 드 파야, 《허무한 인생》 중 스페인 춤곡 제1번
-### Manuel de Falla (1876–1946) - Spanish Dance No.1 from La Vida Breve
+### Manuel de Falla (1876–1946) - Spanish Dance No.1 from 《La Vida Breve》
 
 오페라 《허무한 인생》은 본 적 없더라도 클래식기타를 어느 정도 접한 이들은 반드시 들어봤을 스페인 춤곡. 오페라 2막의 전환부에 나오는 간주곡으로 강한 플라멩코 리듬과 민속 선율이 특징이다. 3/8 박자의 빠른 춤곡으로 시작하여 pesante, ma con fuoco (무겁게, 불타는 듯이)로 표현되는 부분을 지나 다시 앞의 주제로 맺어진다. 좀 다른 것이 나온다 싶으면 후다닥 끝나버리는 3분 30초 가량의 짧은 곡이지만, 한 번 왔다가 가는 허무한 인생, 그렇게 서둘러 연주할 것은 없지 않겠는가? :)
 
 <div style="text-align: right">*(by 하진)*</div>
 
 ## 이삭 알베니스, 카스티야
-### Isaac Albéniz (1860-1909) - Castilla (Seguidillas) from Suite Española Op.47
+### Isaac Albéniz (1860-1909) - Castilla (Seguidillas) from 《Suite Española》 Op.47
 
 알베니스는 19세기 말 스페인 카탈루냐 출신의 피아노 연주자이자 작곡가입니다. 기타곡을 따로 쓰지는 않았는데, 유명한 기타곡들이 많습니다.
 

@@ -1,0 +1,613 @@
+<!-- 자동 생성됨: 2025-08-02 11:59:54 -->
+<!-- 자동 생성됨: 2025-08-02 12:01:57 -->
+<!-- 자동 생성됨: 2025-08-02 12:05:25 -->
+<!-- 자동 생성됨: 2025-08-02 12:07:37 -->
+<!-- 자동 생성됨: 2025-08-02 12:09:12 -->
+<!-- 자동 생성됨: 2025-08-02 12:12:50 -->
+<!-- 자동 생성됨: 2025-08-02 12:16:16 -->
+<!-- 자동 생성됨: 2025-08-02 12:20:36 -->
+<!-- 자동 생성됨: 2025-08-02 12:23:01 -->
+<!-- 자동 생성됨: 2025-08-02 12:25:44 -->
+<!-- 자동 생성됨: 2025-08-02 12:29:12 -->
+<!-- 자동 생성됨: 2025-08-02 12:35:21 -->
+<!-- 자동 생성됨: 2025-08-02 12:38:23 -->
+<!-- 자동 생성됨: 2025-08-02 12:42:10 -->
+<!-- 자동 생성됨: 2025-08-02 13:50:06 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miryeon Classical Guitar Ensemble Concert 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #e8f4f8 0%, #f8e8f4 50%, #f4e8f8 100%);
+            min-height: 100vh;
+        }
+
+        /* Splash Screen Styles */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+
+        #splash-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #splash-screen img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            animation: fadeInScale 2s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Hide main content initially */
+        #main-content {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+
+        #main-content.show {
+            opacity: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #ec4899 100%);
+            color: #ffffff;
+            padding: 60px 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .event-info {
+            font-size: 1.3em;
+            margin: 10px 0;
+            font-weight: 300;
+        }
+
+        .event-info strong {
+            font-weight: 500;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.8);
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Add extra margin-top to first section after navigation */
+        section#invitation {
+            margin-top: 60px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #1e3a8a;
+            text-align: center;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        /* Program Styles */
+        .program-section {
+            margin: 40px 0;
+        }
+
+        .program-section h3 {
+            font-size: 1.5em;
+            color: #3b82f6;
+            margin: 25px 0 15px;
+            padding-left: 20px;
+            border-left: 4px solid #ec4899;
+        }
+
+        .program-item {
+            margin: 15px 0;
+            padding: 15px 30px;
+            background: #faf8f5;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .program-item:hover {
+            background: linear-gradient(135deg, #eff6ff 0%, #fdf2f8 100%);
+            transform: translateX(5px);
+        }
+
+        .program-item h4 {
+            font-size: 1.2em;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .program-item ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .program-item li {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .intermission {
+            text-align: center;
+            font-style: italic;
+            color: #ec4899;
+            font-size: 1.2em;
+            margin: 30px 0;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Program Notes Styles */
+        .note {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8fafc 0%, #fef7ff 100%);
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+        }
+
+        .note h3 {
+            font-size: 1.4em;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+
+        .note p {
+            margin: 15px 0;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* Members section - reduce spacing between paragraphs for same person */
+        #members .note h4 + p {
+            margin-top: 8px;
+        }
+        
+        #members .note p + p {
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+            
+            .event-info {
+                font-size: 1.1em;
+            }
+            
+            h2 {
+                font-size: 1.8em;
+            }
+            
+            .program-item {
+                padding: 10px 20px;
+            }
+            
+            .note {
+                padding: 20px;
+            }
+        }
+
+        /* Decorative Elements */
+        .divider {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6 0%, #ec4899 100%);
+            margin: 30px auto;
+        }
+
+        .highlight {
+            color: #ec4899;
+            font-weight: 500;
+        }
+
+        /* Members Styles - removed, using common .note styles */
+
+        /* Invitation Styles - removed, using common .note styles */
+
+        /* Navigation Styles */
+        nav {
+            background: rgba(30, 58, 138, 0.95);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 400;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(236, 72, 153, 0.3);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        /* Program Link Styles */
+        .program-link {
+            color: #1e3a8a;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .program-link:hover {
+            color: #ec4899;
+            text-decoration: underline;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll padding to account for fixed navigation */
+        html {
+            scroll-padding-top: 80px;
+        }
+
+        /* Alternative method for better browser compatibility */
+        .note {
+            scroll-margin-top: 80px;
+        }
+
+        /* Responsive Navigation */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                font-size: 1em;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <img src="MRGQ2025Poster.jpg" alt="미련 2025 연주회 포스터">
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+    <header>
+        <div class="container">
+            <h1>Miryeon2025</h1>
+            <h2 class="subtitle">Miryeon Classical Guitar Ensemble 25th Anniversary Concert</h2>
+            <div class="divider"></div>
+            <div class="event-info">
+                <strong>August 23, 2025</strong> Saturday <strong>3:00 PM</strong>
+            </div>
+            <div class="event-info">
+                <strong>SCC Hall (Across from Seoul Arts Center)</strong>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="#invitation">Invitation</a></li>
+                    <li><a href="#program">Program</a></li>
+                    <li><a href="#program-notes">Program Notes</a></li>
+                    <li><a href="#members">Members</a></li>
+                    <li><a href="#location">Directions</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="invitation" class="container">
+            <h2>Invitation</h2>
+            <div class="invitation-content">
+            <div class="note">
+                <p>Greetings to all our dear audience members.</p>
+                <p>August has arrived, and we are excited to meet you again with the 2025 concert. It seems like just yesterday that we had our 2020 concert, but now it's been 5 years. During this time, Miryeon has continued to practice steadily, and we are delighted to share with you the fruits of our musical journey.</p>
+                <p>The establishment of our state-of-the-art sheet music system is also significant news from recent times. Thanks to Miryeon's tech team, we have graduated from paper sheet music and concert pieces. While many performers already use tablet + page turner systems, it's not easy to find a system where you can see two pages of sheet music comfortably at a glance and where all performers' page turns are synchronized. We're proud to present the development of Miryeon's dedicated sheet music viewer application that made this possible. Now we really just need to play the guitar well.</p>
+                <p>Five years ago at our concert, I declared "This is Miryeon's new beginning," and indeed, Miryeon has become new during this time. We've learned to live a life preparing for concerts, shall we say? We've gained the wisdom of planning concerts from at least 2 years in advance, practicing in concert formation for more than a year and a half, and balancing work-life, or rather guitar-life balance. In selecting concert pieces, we've also learned to consider not just our own desires but also the audience. We've put down burdens and grown to love the guitar a bit more, and we've resolved that we can continue living this way.</p>
+                <p>As you know, Miryeon (未練) means incomplete training or lingering attachment. We will leave some miryeon from this concert and return having grown a little more. We sincerely thank all our audience members who always complete our insufficient concerts.</p>
+                <div style="text-align: right"><br><em>On behalf of Miryeon</em>  <br><strong>Jeon Yewan</strong><br></div>
+            </div>
+            </div>
+        </section>
+
+        <section id="program" class="container">
+            <h2>Program</h2>
+            
+            <div class="intermission">Intermission</div>
+        </section>
+
+        <section id="program-notes" class="container">
+            <h2>Program Notes</h2>
+            
+            <div id="gioachino-rossini-overture-to-la-gazza-ladra" class="note">
+                <h3>Gioachino Rossini, Overture to "La Gazza Ladra"</h3>
+                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">Gioachino Rossini (1792-1868) - Overture to 《La Gazza Ladra》</h4>
+                <p>I just realized while writing this - I don't know the plot of the opera "La Gazza Ladra." But that's fine. After all, only the overture is famous from this opera. (If you're curious about the plot... someone summarized it as 'the French version of Sim Cheong-jeon where a daughter saves her father.') This piece, which the genius Rossini dashed off at the height of his fame at twenty-five, overflows with his characteristic frivolity that isn't frivolous and his tedium that isn't tedious.</p>
+                <p>Though it would be perfect as an opening piece, it hasn't been frequently performed at Hwahyeon Society concerts until now because it was difficult to express the snare drum tremolo that appears at the beginning. We plan to have our selected performer showcase brilliant tambourine technique to boldly announce the start of this concert.</p>
+                <p><div style="text-align: right"><em>(by Yejin)</em></div></p>
+            </div>
+
+            <div id="johann-sebastian-bach-toccata-and-fugue-in-d-minor-bwv-565" class="note">
+                <h3>Johann Sebastian Bach, Toccata and Fugue in D minor (BWV 565)</h3>
+                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">Johann Sebastian Bach (1685-1750) - Toccata and Fugue in D minor (BWV 565)</h4>
+                <p>Who doesn't know the dramatic opening that starts with "Ti-ro-ri~"? This is Bach's most famous organ piece, and as widely known as it is, it receives varied evaluations, with some even claiming it's not Bach's work. The estimated composition date also varies, but it's generally understood to be an early work from around 1708-9. The un-Bach-like messiness and somewhat clumsy development might make you wonder "Is this really Bach?" but these are exactly the qualities you can find in Bach's early works, and they're quite charming. Moreover, the rustic melodies of these early works inevitably touch the Korean heart... Oh, among the various evaluations, I wholeheartedly agree with the assessment that "it seems like a virtuosic piece but isn't as difficult as it sounds."</p>
+                <p>Miryeon performed this piece with the same member composition at the Hwahyeon Society 45th Anniversary OB Concert in 2012. For this concert, more than ten years later, we've introduced an 8-string guitar to enhance the majestic bass and used steel strings on the 1st part to achieve baroque effects.</p>
+                <p><div style="text-align: right"><em>(by Yewan)</em></div></p>
+            </div>
+
+            <div id="jorge-cardoso-milonga" class="note">
+                <h3>Jorge Cardoso, Milonga</h3>
+                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">Jorge Cardoso (1949-) - Milonga from 《24 Piezas Sudamericanas》</h4>
+                <p>Milonga is a South American folk dance that's somewhat like the predecessor of tango. This piece is the final work in the collection of 24 South American pieces left by Argentine guitarist and composer Cardoso. Two guitars exchange South American rhythms while varying lyrical and mysterious melodies, creating an addictive piece where the main theme repeats endlessly in your head.</p>
+                <p>Personally, I love this kind of groove-filled duet piece, but I'd never had the courage to put it on a concert program. Since it was the most memorable piece when I played with Yejin at a previous recital, I've always wanted to perform it together as a couple at a concert someday. That honey-dripping, crystalline melody. 蜜(mil), 瓏(rong), 歌(ga).</p>
+                <p><div style="text-align: right"><em>(by Eunseok)</em></div></p>
+            </div>
+
+            <div id="maurice-ravel-pavane-for-a-dead-princess" class="note">
+                <h3>Maurice Ravel, Pavane for a Dead Princess</h3>
+                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">Maurice Ravel (1875-1937) - Pavane pour une infante défunte</h4>
+                <p>Ravel, the representative composer of French impressionist music, published this piano piece at age 24 while studying at the Paris Conservatory, setting enchanting melodies and harmonies to the slow dance form of pavane, and from then on became widely known to the public. Later, Ravel himself arranged it for orchestra, making the piece even more famous, and recently it's often performed as jazz, but I think the guitar arrangement version suits this piece best.</p>
+                <p>This is a piece that Miryeon particularly loves, and we've often put it on stage as a trio with the team leader's arrangement, but this is the first duet since the Hwahyeon Society regular concert in 1997. There's a story that Ravel, who suffered brain damage in a traffic accident in his later years, heard this piece on the radio and exclaimed, "Whose piece is so beautiful?" We'll perform this with the late Hong Seonggak's arrangement, which beautifully brings out the original's attractive harmonies and melodies in a guitaristic way. Harmonies majestic but not heavy, melodies sad but not pitiful. (Please listen to it that way!)</p>
+                <p><div style="text-align: right"><em>(by Eunseok)</em></div></p>
+            </div>
+
+            <div id="fernando-sor-introduction-and-variations-on-a-theme-by-mozart" class="note">
+                <h3>Fernando Sor, Introduction and Variations on a Theme by Mozart</h3>
+                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">Fernando Sor (1778-1839) - Introduction and Variations on a Theme by Mozart, Op.9</h4>
+                <p>This most famous work by Sor is known to be based on the aria "O Cara Armonia" that appears at the end of Act I of Mozart's opera "The Magic Flute," lasting about a minute. However, in my personal opinion, this level of connection would be more like a tribute composition dedicated to Mozart - with copyright entirely belonging to Sor - rather than a revival or featuring in modern copyright terms.</p>
+                <p>The structure of the piece feels like: 'Introduction that makes you excited about what's coming - light and bouncy theme - 1st variation jumping around with excitement - 2nd variation pretending to be serious - 3rd variation lost in reverie - 4th variation periodically convulsing and breaking out of its shell - 5th variation coming out and running around wildly with excitement - coda finally looking around and organizing thoughts, promising to live well.' The difference from other variation pieces is that instead of predictably having this kind of variation next, then that kind, each variation creates a story.</p>
+                <p>Even when I had abundant hand strength in my twenties, I found it somehow difficult and never put it on a concert program. This time, I started with the determination to re-strengthen my fundamentals, but... it's still difficult. However, it's so much fun to gradually incorporate my own interpretation and expression of the piece.</p>
+                <p><div style="text-align: right"><em>(by Jinho)</em></div></p>
+            </div>
+
+            <div id="english-folk-song-francis-cutting-greensleeves" class="note">
+                <h3>English Folk Song / Francis Cutting, Greensleeves</h3>
+                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">Anon. / Francis Cutting (c.1550-1596) - Greensleeves</h4>
+                <p>When we think of "Guitar & Voice," it's easy to think of the guitar as simply providing accompaniment. However, in Renaissance lute songs [or airs], the instrument and voice relate to each other as equals. The guitar part of "Greensleeves" that we're performing is an arrangement by 16th-century English lutenist and composer Francis Cutting, which is a vibrant, genuine solo piece. You can think of it as the voice being laid over the guitar.</p>
+                <p>"Greensleeves" is a very well-known English folk song. Between the repeating refrains are countless verses, and their content is truly monotonous. Not just Greensleeves - the lyrics of Renaissance lute songs are all surprisingly identical. Resenting the heartless woman who abandoned them, yet saying "I still love you," pleading for her to return. Modern people might find it hard to empathize with the sentiment of these lyrics, but the melodies from 500 years ago still touch our heartstrings. Let's immerse ourselves in the sorrow of love following the guitar's melody, at least for today.</p>
+                <p><div style="text-align: right"><em>(by Yewan)</em></div></p>
+            </div>
+
+            <div id="franz-schubert-winterreise--1-gute-nacht" class="note">
+                <h3>Franz Schubert, "Winterreise" - 1. Gute Nacht</h3>
+                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">Franz Schubert (1797-1828) - 《Winterreise》 Op.89 · D911, 1. Gute Nacht</h4>
+                <p>"Winterreise" (Winter Journey) is a song cycle by Schubert set to poems by Wilhelm Müller. The content tells of wandering aimlessly in the middle of winter after a broken heart, expressing the wounds of love. Originally composed for tenor, it's often sung by baritone or bass in lower transpositions. As it represents the feelings of a European man in the Romantic era, it's rarely sung by women, but well, love transcends East and West, age, and gender.</p>
+                <p>Among the 24 songs in "Winterreise," the 5th song "Der Lindenbaum" is famous, but the 1st song, which announces the beginning of wandering with "As a stranger I came, as a stranger I depart again...", is the most poignantly beautiful. We were hesitant about singing in German and tried Korean lyrics, but the team members objected, saying the content was too pathetic and looked bad (though that's what the original content is like!), so we ended up singing in the original language. In art songs (Lieder), the delicate piano accompaniment is as important as the singing, and classical guitar is equally suitable as a partner for Lieder. We use Klaus Jäckle's guitar arrangement and perform in the original key of D minor.</p>
+                <p><div style="text-align: right"><em>(by Yewan)</em></div></p>
+            </div>
+
+            <div id="heitor-villa-lobos-bachianas-brasileiras-no5-1-aria" class="note">
+                <h3>Heitor Villa-Lobos, Bachianas Brasileiras No.5, 1. Aria</h3>
+                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">Heitor Villa-Lobos (1887-1959) - Bachianas Brasileiras No.5, 1. Aria (Cantilena)</h4>
+                <p>Brazil's national composer Villa-Lobos is also special in the guitar world. "Everyone has at least one Villa-Lobos piece in their heart." For me, that's this piece. Bachianas Brasileiras No.5 was composed for eight cellos and soprano, and among the two movements, the 1st movement Aria is famous. Villa-Lobos himself arranged this aria for guitar solo and soprano. A melancholic melody is laid over delicate and beautiful guitar performance. Like the sirens' song, you can't help but be captivated the moment you hear it. However, you need to sing well...</p>
+                <p>I didn't dare to put this piece on stage. My breathing wasn't good enough, and most importantly, I didn't have the ability to properly produce high B♭. Even while preparing for the concert at Yejin's suggestion, I was conflicted. "Can't we leave this piece out?" "We're doing this duet because of this piece!" This piece was also Yejin's Villa-Lobos in her heart... By the way, the lyrics express the deep 'saudade' (longing/yearning) felt at the moment the moon rises. For our saudade!</p>
+                <p><div style="text-align: right"><em>(by Yewan)</em></div></p>
+            </div>
+
+            <div id="al-di-meola-the-grande-passion" class="note">
+                <h3>Al Di Meola, The Grande Passion</h3>
+                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">Al Di Meola (1954-) - The Grande Passion</h4>
+                <p>Fusion and Latin jazz guitarist and composer Al Di Meola is a name that even classical guitar enthusiasts might have heard of, thanks to his distinctive Latin-Mediterranean rhythmic composition style, unique performance technique, and collaborations with various musicians. "The Grande Passion" is the centerpiece of his 2000 album, originally a large-scale piece for guitar and orchestra concerto. We present it as a small attempt to broaden Miryeon's performance horizons.</p>
+                <p>'Passion' usually means enthusiasm, but surprisingly, its Latin etymology means suffering or ordeal. 'Grande Passion' is also 'great suffering.' Both the mysterious original piece and the duet version by Al Di Meola and Barrueco that we present here leave a mysterious and complex impression rather than revealing burning passion, as much as the title's meaning suggests.</p>
+                <p><div style="text-align: right"><em>(by Hajin)</em></div></p>
+            </div>
+
+            <div id="manuel-de-falla-spanish-dance-no1-from-la-vida-breve" class="note">
+                <h3>Manuel de Falla, Spanish Dance No.1 from "La Vida Breve"</h3>
+                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">Manuel de Falla (1876–1946) - Spanish Dance No.1 from 《La Vida Breve》</h4>
+                <p>Even if you haven't seen the opera "La Vida Breve," anyone who has been exposed to classical guitar to some extent has surely heard this Spanish dance. It's an interlude from the transition in Act 2 of the opera, characterized by strong flamenco rhythms and folk melodies. It starts as a fast dance in 3/8 time, passes through a section marked pesante, ma con fuoco (heavy, but with fire), and concludes with the earlier theme again. It's a short piece of about 3 minutes and 30 seconds that ends quickly after something different appears, but for a fleeting life that comes and goes once, there's no need to rush through the performance, is there? :)</p>
+                <p><div style="text-align: right"><em>(by Hajin)</em></div></p>
+            </div>
+
+            <div id="isaac-albniz-castilla" class="note">
+                <h3>Isaac Albéniz, Castilla</h3>
+                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">Isaac Albéniz (1860-1909) - Castilla (Seguidillas) from 《Suite Española》 Op.47</h4>
+                <p>Albéniz was a pianist and composer from Catalonia, Spain in the late 19th century. He didn't write guitar pieces specifically, but there are many famous guitar works based on his compositions.</p>
+                <p>Castilla is a place name still used today because the vast central region of Spain around Madrid was the Kingdom of Castilla 800 years ago. If you think of it as the place where Don Quixote rode his horse, it seems perfect. The feeling of a small pony prancing around rather than a large racehorse, and the dazzling feeling of sunlight spreads throughout the piece. There's something uniquely Spanish and earthy about this piece. I thought it might express the atmosphere of Albéniz's hometown, but it turns out his hometown is near Barcelona...</p>
+                <p><div style="text-align: right"><em>(by Jinho)</em></div></p>
+            </div>
+
+            <div id="antonn-dvok-symphony-no9-from-the-new-world" class="note">
+                <h3>Antonín Dvořák, Symphony No.9 "From the New World"</h3>
+                <h4 style="color: #6b4423; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">Antonín Dvořák (1841-1904) - Symphony No.9 in E minor "From the New World" Op.95, IV. Finale: Allegro con fuoco</h4>
+                <p>"From the New World" is probably the most famous work among those Dvořák left during his three years in America. The 4th movement in particular has a very impressive powerful theme reminiscent of 'Jaws.' As everyone knows, the 'New World' refers to America. When Dvořák took the position of director of the National Conservatory of Music in America, he was given the mission of becoming a cornerstone for 'establishing American music,' and he focused on embodying the ethnic characteristics of African Americans and Native Americans in symphonic form. The intense and majestic vigor felt in this piece, the raw vitality, and the melancholy hidden between them... these impressions must have been what the composer felt was American. That's what America was like 100 years ago, apparently.</p>
+                <p>While this powerful piece is undoubtedly good music, there were many different opinions about whether it's suitable for guitar performance. We hope that our performance, struggling to express the characteristics of orchestral music through various guitar effects, can convey even a fraction of the original's intensity.</p>
+                <p><div style="text-align: right"><em>(by Yejin)</em></div></p>
+            </div>
+        </section>
+
+        <section id="members" class="container">
+            <h2>Members</h2>
+            
+            <div class="note">
+
+                <h3>Performers</h3>
+
+                <h4 style="margin-top: 30px; color: #4a2c1a;">Jeon Yewan | <span style="font-weight: normal;">Aesthetician. Teaches aesthetics and philosophy at Seoul National University, Hongik University, and other institutions.</span></h4>
+
+                <p>In charge of sheet music and ideology for Miryeon.<br>Nominally the team leader, but in reality a follower rather than a leader of team members.</p>
+
+                <h4 style="margin-top: 30px; color: #4a2c1a;">Yang Jinho | <span style="font-weight: normal;">Group Leader of xEV Pack Development Group, Small Business Unit, Samsung SDI.</span></h4>
+
+                <p>Automotive battery design is still interesting. Guitar doesn't interfere with work.<br>In charge of groove for Miryeon. A guitar master dreaming of transcendence.</p>
+
+                <h4 style="margin-top: 30px; color: #4a2c1a;">Cho Eunseok | <span style="font-weight: normal;">Principal Research Engineer, System Package Lab, Semiconductor Research Center, Samsung Electronics.</span></h4>
+
+                <p>Miryeon's commander-in-chief. Without him, there is no Miryeon.<br>A philosopher who gains insight into life by plowing fields and pulling weeds.</p>
+
+                <h4 style="margin-top: 30px; color: #4a2c1a;">Kim Hajin | <span style="font-weight: normal;">UNIST Professor. Researches Single Molecule Biophysics.</span></h4>
+
+                <p>Responsible for Miryeon's musical soul and technique.<br>Pursues 100% in everything: guitar, piano, research, cooking, and housework.</p>
+
+                <h4 style="margin-top: 30px; color: #4a2c1a;">Oh Yejin | <span style="font-weight: normal;">Global Category Master, CJ CheilJedang. Develops various processed foods including Hetbahn.</span></h4>
+
+                <p>Miryeon's ace. Miryeon's voice of truth.<br>The only one who can sometimes stop the team leader's runaway train. A person who lives sincerely.</p>
+
+            </div>
+
+            <div class="note">
+
+                <h3>Staff</h3>
+
+                <h4 style="margin-top: 30px; color: #4a2c1a;">Noh Kyunghee | <span style="font-weight: normal;">Ulsan University Professor. Teaches Korean classical literature.</span></h4>
+
+                <p>Loves old writings, books, people, objects, and places, and treats the thousand-year-old capital Gyeongju as her neighborhood playground.<br>In charge of concert planning, liaison, promotion, and fundraising for Miryeon.</p>
+
+                <h4 style="margin-top: 30px; color: #4a2c1a;">Jeong Jikhan | <span style="font-weight: normal;">Paleontologist who studies very old things dug up from the ground.</span></h4>
+
+                <p>Enjoys kicking balls and making delicious food to share with others.<br>In charge of Miryeon's meals and various support tasks.</p>
+
+            </div>
+        </section>
+
+        <section id="location" class="container">
+            <h2>Directions</h2>
+            
+            <div class="note">
+                <h3>SCC Hall (Across from Seoul Arts Center)</h3>
+                <div style="text-align: center; margin: 20px 0;">
+                    <img src="SCCMap2025.png" alt="SCC홀 오시는 길 지도" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                </div>
+                <p style="text-align: center; margin-top: 15px; color: #666; font-style: italic;">
+                    8-minute walk from Nambu Terminal Station (Line 3) Exit 5
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Miryeon Classical Guitar Ensemble. All rights reserved.</p>
+        </div>
+    </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const splashScreen = document.getElementById('splash-screen');
+            const mainContent = document.getElementById('main-content');
+            
+            // Show splash screen for 3 seconds
+            setTimeout(function() {
+                // Start fade out splash screen
+                splashScreen.classList.add('fade-out');
+                
+                // Show main content after fade transition
+                setTimeout(function() {
+                    mainContent.classList.add('show');
+                    // Remove splash screen from DOM
+                    splashScreen.style.display = 'none';
+                }, 1000); // Wait for fade-out animation
+            }, 3000); // Show splash for 3 seconds
+        });
+    </script>
+</body>
+</html>
