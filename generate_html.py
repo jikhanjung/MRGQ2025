@@ -411,24 +411,15 @@ def main():
     print("HTML 생성 스크립트를 실행합니다...")
     
     # 파일 경로
-    template_path = 'index.html'
-    backup_path = 'index_backup.html'
+    template_path = 'template.html'
     notes_path = 'program_notes.md'
     invitation_path = 'invitation.md'
     members_path = 'members.md'
     output_path = 'index.html'
     
-    # 기존 index.html을 백업
-    print(f"기존 파일 백업 중: {template_path} -> {backup_path}")
+    # 템플릿 파일 읽기
+    print(f"템플릿 파일 읽는 중: {template_path}")
     template_content = read_file(template_path)
-    if template_content:
-        try:
-            with open(backup_path, 'w', encoding='utf-8') as f:
-                f.write(template_content)
-            print(f"✅ 백업 완료: {backup_path}")
-        except Exception as e:
-            print(f"❌ 백업 실패: {e}")
-            return
     if template_content is None:
         return
     
