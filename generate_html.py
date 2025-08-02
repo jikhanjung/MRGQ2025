@@ -203,11 +203,19 @@ def generate_members_html(members):
             html_parts.append(f'                <h3>{section_name}</h3>')
             
             for member in member_list:
-                html_parts.append(f'                <h4 style="margin-top: 30px; color: #4a2c1a;">{member["name"]}</h4>')
-                
-                for desc in member['description']:
-                    if desc.strip():
-                        html_parts.append(f'                <p>{desc}</p>')
+                # 첫 번째 설명을 이름 옆에 병기
+                if member['description'] and member['description'][0].strip():
+                    first_desc = member['description'][0].strip()
+                    html_parts.append(f'                <h4 style="margin-top: 30px; color: #4a2c1a;">{member["name"]} | <span style="font-weight: normal;">{first_desc}</span></h4>')
+                    # 나머지 설명들
+                    for desc in member['description'][1:]:
+                        if desc.strip():
+                            html_parts.append(f'                <p>{desc}</p>')
+                else:
+                    html_parts.append(f'                <h4 style="margin-top: 30px; color: #4a2c1a;">{member["name"]}</h4>')
+                    for desc in member['description']:
+                        if desc.strip():
+                            html_parts.append(f'                <p>{desc}</p>')
             
             html_parts.append(f'            </div>')
     
