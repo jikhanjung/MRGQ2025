@@ -5,10 +5,10 @@
 ### Quartet - Oh Yejin, Jeon Yewan, Kim Hajin, Cho Eunseok
 - Gioachino Rossini, Overture to "La Gazza Ladra"
 
-### Trio - Oh Yejin, Jeon Yewan, Cho Eunseok
+### Trio - Jeon Yewan, Oh Yejin, Cho Eunseok
 - Johann Sebastian Bach, Toccata and Fugue in D minor (BWV 565)
 
-### Duo - Oh Yejin, Cho Eunseok
+### Duo - Cho Eunseok, Oh Yejin
 - Jorge Cardoso, Milonga
 - Maurice Ravel, Pavane for a Dead Princess
 
@@ -19,7 +19,7 @@
 
 ## Part II
 
-### Duo - Oh Yejin, Jeon Yewan
+### Duo - Jeon Yewan, Oh Yejin
 - English Folk Song / Francis Cutting, Greensleeves
 - Franz Schubert, "Winterreise" - 1. Gute Nacht
 - Heitor Villa-Lobos, Bachianas Brasileiras No.5, 1. Aria
