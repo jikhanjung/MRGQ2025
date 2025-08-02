@@ -317,15 +317,18 @@ def generate_members_html(members):
                 if member['description'] and member['description'][0].strip():
                     first_desc = member['description'][0].strip()
                     html_parts.append(f'                <h4 style="margin-top: 30px; color: #4a2c1a;">{member["name"]} | <span style="font-weight: normal;">{first_desc}</span></h4>')
-                    # 나머지 설명들
-                    for desc in member['description'][1:]:
-                        if desc.strip():
-                            html_parts.append(f'                <p>{desc}</p>')
+                    # 나머지 설명들을 하나의 문단으로 합치기
+                    remaining_descs = [desc.strip() for desc in member['description'][1:] if desc.strip()]
+                    if remaining_descs:
+                        combined_desc = '<br>'.join(remaining_descs)
+                        html_parts.append(f'                <p>{combined_desc}</p>')
                 else:
                     html_parts.append(f'                <h4 style="margin-top: 30px; color: #4a2c1a;">{member["name"]}</h4>')
-                    for desc in member['description']:
-                        if desc.strip():
-                            html_parts.append(f'                <p>{desc}</p>')
+                    # 모든 설명을 하나의 문단으로 합치기
+                    all_descs = [desc.strip() for desc in member['description'] if desc.strip()]
+                    if all_descs:
+                        combined_desc = '<br>'.join(all_descs)
+                        html_parts.append(f'                <p>{combined_desc}</p>')
             
             html_parts.append(f'            </div>')
     
