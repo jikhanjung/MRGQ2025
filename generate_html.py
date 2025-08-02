@@ -136,7 +136,7 @@ def generate_invitation_html(invitation_content):
     """초대의 말씀 내용을 HTML로 변환합니다."""
     # 마크다운 문단을 HTML p 태그로 변환
     paragraphs = invitation_content.split('\n\n')
-    html_parts = []
+    paragraph_html = []
     
     for paragraph in paragraphs:
         if paragraph.strip():
@@ -146,9 +146,12 @@ def generate_invitation_html(invitation_content):
             paragraph = re.sub(r'\*(.*?)\*', r'<em>\1</em>', paragraph)
             # 줄바꿈 처리
             paragraph = paragraph.replace('\n', '<br>')
-            html_parts.append(f'            <div class="note">\n                <p>{paragraph}</p>\n            </div>')
+            paragraph_html.append(f'                <p>{paragraph}</p>')
     
-    return '\n\n'.join(html_parts)
+    # 모든 문단을 하나의 note div 안에 넣기
+    html_content = '            <div class="note">\n' + '\n'.join(paragraph_html) + '\n            </div>'
+    
+    return html_content
 
 
 def generate_members_html(members):
