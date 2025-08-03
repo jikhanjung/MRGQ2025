@@ -775,13 +775,26 @@
                 }
             });
             
-            // Close dropdown when clicking on submenu item
+            // Close dropdown when clicking on submenu item (with better mobile support)
             const dropdownLinks = document.querySelectorAll('.dropdown-content a');
             dropdownLinks.forEach(link => {
+                // Add both click and touchend events for better mobile support
                 link.addEventListener('click', function() {
                     dropdowns.forEach(dropdown => {
                         dropdown.classList.remove('active');
                     });
+                });
+                
+                link.addEventListener('touchend', function(e) {
+                    // Prevent the click event from firing on touch devices
+                    e.preventDefault();
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                    // Manually trigger navigation after a brief delay
+                    setTimeout(() => {
+                        window.location.href = link.getAttribute('href');
+                    }, 100);
                 });
             });
         });
