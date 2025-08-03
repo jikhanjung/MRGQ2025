@@ -286,7 +286,7 @@ def create_piece_to_id_mapping():
         '알 디 메올라, 그랜드 패션': '알-디-메올라-그랜드-패션',
         '마누엘 드 파야, 《허무한 인생》 중 스페인 춤곡 제1번': '마누엘-드-파야-허무한-인생-중-스페인-춤곡-제1번',
         '이삭 알베니스, 카스티야': '이삭-알베니스-카스티야',
-        '안토닌 드보르자크, 교향곡 제9번 "신세계로부터"': '안토닌-드보르자크-교향곡-제9번-신세계로부터'
+        '안토닌 드보르자크, 교향곡 제9번 "신세계로부터" 제 4악장': '안토닌-드보르자크-교향곡-제9번-신세계로부터-제-4악장'
     }
 
 
@@ -304,7 +304,7 @@ def create_piece_to_id_mapping_en():
         'Al Di Meola, The Grande Passion': 'al-di-meola-the-grande-passion',
         'Manuel de Falla, Spanish Dance No.1 from "La Vida Breve"': 'manuel-de-falla-spanish-dance-no1-from-la-vida-breve',
         'Isaac Albéniz, Castilla': 'isaac-albeniz-castilla',
-        'Antonín Dvořák, Symphony No.9 "From the New World"': 'antonin-dvorak-symphony-no9-from-the-new-world'
+        'Antonín Dvořák, Symphony No.9 "From the New World", IV. Finale: Allegro con fuoco': 'antonin-dvorak-symphony-no9-from-the-new-world-iv-finale-allegro-con-fuoco'
     }
 
 
