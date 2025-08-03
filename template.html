@@ -260,6 +260,10 @@
             gap: 40px;
         }
 
+        .nav-links > li {
+            position: relative;
+        }
+
         .nav-links a {
             color: #ffffff;
             text-decoration: none;
@@ -268,12 +272,64 @@
             padding: 10px 15px;
             border-radius: 5px;
             transition: all 0.3s ease;
+            display: block;
         }
 
         .nav-links a:hover {
             background: rgba(236, 72, 153, 0.3);
             color: #fff;
             transform: translateY(-1px);
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(30, 58, 138, 0.98);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            color: #ffffff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1em;
+            border-radius: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(236, 72, 153, 0.4);
+            transform: none;
+        }
+
+        .dropdown-arrow {
+            margin-left: 5px;
+            font-size: 0.8em;
         }
 
         /* Program Link Styles */
@@ -337,12 +393,29 @@
         <div class="container">
             <div class="nav-container">
                 <ul class="nav-links">
-                    <li><a href="#invitation">초대의 말씀</a></li>
-                    <li><a href="#program">순서</a></li>
-                    <li><a href="#program-notes">곡 해설</a></li>
-                    <li><a href="#members">미련 사람들</a></li>
-                    <li><a href="#location">오시는 길</a></li>
-                    <li><a href="index_en.html" style="color: #ffd700; font-weight: 500; font-size: 0.9em;">Eng.</a></li>
+                    <li class="dropdown">
+                        <a href="#invitation">연주회 안내</a>
+                        <div class="dropdown-content">
+                            <a href="#invitation">초대의 말씀</a>
+                            <a href="#poster">포스터 소개</a>
+                            <a href="#location">오시는 길</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#program">프로그램</a>
+                        <div class="dropdown-content">
+                            <a href="#program">연주 순서</a>
+                            <a href="#program-notes">곡 해설</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#members">미련 소개</a>
+                        <div class="dropdown-content">
+                            <a href="#members">미련 사람들</a>
+                            <a href="#history">미련의 발자취</a>
+                        </div>
+                    </li>
+                    <li><a href="index_en.html" style="color: #ffd700; font-weight: 500; font-size: 0.9em;">English</a></li>
                 </ul>
             </div>
         </div>
@@ -361,6 +434,25 @@
                 <p>아시다시피 미련은 未練, 연성이 덜 됐다는 뜻이지요. 이번 연주회에 미련을 남기고, 조금 더 성장하여 돌아오겠습니다. 항상 부족한 연주회를 완성해 주시는 관객 여러분께 진심으로 감사드립니다.</p>
                 <div style="text-align: right"><br><em>미련을 대표하여</em>  <br><strong>전예완</strong><br></div>
             </div>
+            </div>
+        </section>
+
+        <section id="poster" class="container">
+            <h2>포스터 소개</h2>
+            {{poster_content}}
+        </section>
+
+        <section id="location" class="container">
+            <h2>오시는 길</h2>
+            
+            <div class="note">
+                <h3>SCC홀 (예술의전당 길 건너편)</h3>
+                <div style="text-align: center; margin: 20px 0;">
+                    <img src="SCCMap2025.png" alt="SCC홀 오시는 길 지도" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                </div>
+                <p style="text-align: center; margin-top: 15px; color: #666; font-style: italic;">
+                    지하철 3호선 남부터미널역 5번 출구에서 도보 8분
+                </p>
             </div>
         </section>
 
@@ -634,19 +726,11 @@
             </div>
         </section>
 
-        <section id="location" class="container">
-            <h2>오시는 길</h2>
-            
-            <div class="note">
-                <h3>SCC홀 (예술의전당 길 건너편)</h3>
-                <div style="text-align: center; margin: 20px 0;">
-                    <img src="SCCMap2025.png" alt="SCC홀 오시는 길 지도" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                </div>
-                <p style="text-align: center; margin-top: 15px; color: #666; font-style: italic;">
-                    지하철 3호선 남부터미널역 5번 출구에서 도보 8분
-                </p>
-            </div>
+        <section id="history" class="container">
+            <h2>미련의 발자취</h2>
+            {{history_content}}
         </section>
+
     </main>
 
     <footer>

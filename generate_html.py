@@ -434,7 +434,107 @@ def generate_members_html(members, is_english=False):
     return '\n\n'.join(html_parts)
 
 
-def update_html_template(template_content, notes, invitation_content=None, members=None, program=None, is_english=False):
+def parse_markdown_content(markdown_content):
+    """markdown 내용을 HTML로 변환합니다."""
+    # 마크다운 파싱 - ## 제목 처리
+    html_parts = []
+    
+    # ## 제목으로 섹션을 나누되, 첫 번째 섹션도 올바르게 처리
+    sections = re.split(r'\n(?=## )', markdown_content)
+    
+    for section in sections:
+        section = section.strip()
+        if not section:
+            continue
+            
+        if section.startswith('## '):
+            # ## 로 시작하는 섹션
+            lines = section.split('\n', 1)
+            title = lines[0].replace('## ', '').strip()
+            content = lines[1].strip() if len(lines) > 1 else ''
+            
+            html_parts.append('<div class="note">')
+            html_parts.append(f'<h3>{title}</h3>')
+            
+            if content:
+                paragraphs = content.split('\n\n')
+                for para in paragraphs:
+                    if para.strip():
+                        # 이미지 처리 ![alt](src)
+                        if re.match(r'!\[.*?\]\(.*?\)', para.strip()):
+                            # 포스터 이미지 처리
+                            image_html = re.sub(r'!\[(.*?)\]\((.*?)\)', 
+                                             r'<div style="text-align: center; margin: 20px 0;"><img src="\2" alt="\1" style="max-width: 400px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"></div>', 
+                                             para.strip())
+                            html_parts.append(image_html)
+                        # 포스터 정보만 가운데 정렬 처리 (연속된 **텍스트** 줄들)
+                        elif ('조유란' in para or 'Cho Yuran' in para) and '**' in para and para.count('\n') >= 3:
+                            # 줄바꿈으로 나누기 (markdown의 강제 줄바꿈은 두 칸 다음 줄바꿈)
+                            lines = para.split('\n')
+                            
+                            centered_content = []
+                            for line in lines:
+                                line = line.strip()
+                                if line and '**' in line:
+                                    # **텍스트** -> 텍스트 (볼드 제거하고 스타일로 처리)
+                                    line_text = re.sub(r'\*\*(.*?)\*\*', r'\1', line)
+                                    centered_content.append(f'<p style="margin: 5px 0; font-weight: bold; text-align: center;">{line_text}</p>')
+                            if centered_content:
+                                html_parts.append(f'<div style="margin: 20px 0;">{"".join(centered_content)}</div>')
+                        else:
+                            # **텍스트** -> <strong>텍스트</strong>
+                            para = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', para)
+                            # *텍스트* -> <em>텍스트</em>  
+                            para = re.sub(r'\*(.*?)\*', r'<em>\1</em>', para)
+                            # 줄바꿈 처리
+                            para = para.replace('  \n', '<br>')
+                            para = para.replace('\n', '<br>')
+                            html_parts.append(f'<p>{para}</p>')
+            
+            html_parts.append('</div>')
+        else:
+            # 제목 없는 일반 내용
+            if section.strip():
+                html_parts.append('<div class="note">')
+                paragraphs = section.split('\n\n')
+                for para in paragraphs:
+                    if para.strip():
+                        # 이미지 처리 ![alt](src)
+                        if re.match(r'!\[.*?\]\(.*?\)', para.strip()):
+                            # 포스터 이미지 처리
+                            image_html = re.sub(r'!\[(.*?)\]\((.*?)\)', 
+                                             r'<div style="text-align: center; margin: 20px 0;"><img src="\2" alt="\1" style="max-width: 400px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"></div>', 
+                                             para.strip())
+                            html_parts.append(image_html)
+                        # 포스터 정보만 가운데 정렬 처리 (연속된 **텍스트** 줄들)
+                        elif ('조유란' in para or 'Cho Yuran' in para) and '**' in para and para.count('\n') >= 3:
+                            # 줄바꿈으로 나누기 (markdown의 강제 줄바꿈은 두 칸 다음 줄바꿈)
+                            lines = para.split('\n')
+                            
+                            centered_content = []
+                            for line in lines:
+                                line = line.strip()
+                                if line and '**' in line:
+                                    # **텍스트** -> 텍스트 (볼드 제거하고 스타일로 처리)
+                                    line_text = re.sub(r'\*\*(.*?)\*\*', r'\1', line)
+                                    centered_content.append(f'<p style="margin: 5px 0; font-weight: bold; text-align: center;">{line_text}</p>')
+                            if centered_content:
+                                html_parts.append(f'<div style="margin: 20px 0;">{"".join(centered_content)}</div>')
+                        else:
+                            # **텍스트** -> <strong>텍스트</strong>
+                            para = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', para)
+                            # *텍스트* -> <em>텍스트</em>
+                            para = re.sub(r'\*(.*?)\*', r'<em>\1</em>', para)
+                            # 줄바꿈 처리
+                            para = para.replace('  \n', '<br>')
+                            para = para.replace('\n', '<br>')
+                            html_parts.append(f'<p>{para}</p>')
+                html_parts.append('</div>')
+    
+    return '\n'.join(html_parts)
+
+
+def update_html_template(template_content, notes, invitation_content=None, members=None, program=None, poster_content=None, history_content=None, is_english=False):
     """HTML 템플릿을 업데이트합니다."""
     
     # 프로그램 노트 섹션 찾기 및 교체
@@ -511,6 +611,16 @@ def update_html_template(template_content, notes, invitation_content=None, membe
         
         updated_content = re.sub(members_pattern, replace_members, updated_content, flags=re.DOTALL)
     
+    # 포스터 섹션 교체
+    if poster_content:
+        poster_html = parse_markdown_content(poster_content)
+        updated_content = updated_content.replace('{{poster_content}}', poster_html)
+    
+    # 연혁 섹션 교체
+    if history_content:
+        history_html = parse_markdown_content(history_content)
+        updated_content = updated_content.replace('{{history_content}}', history_html)
+    
     # 생성 시간 주석 추가
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     comment = f"<!-- 자동 생성됨: {timestamp} -->\n"
@@ -583,9 +693,19 @@ def main():
         program_parsed = parse_markdown_program(program_content)
         print("✅ 콘서트 프로그램 파싱 완료")
     
+    # 포스터 파일 읽기
+    poster_path = 'poster.md'
+    print(f"포스터 파일 읽는 중: {poster_path}")
+    poster_content = read_file(poster_path)
+    
+    # 연혁 파일 읽기
+    history_path = 'history.md'
+    print(f"연혁 파일 읽는 중: {history_path}")
+    history_content = read_file(history_path)
+    
     # HTML 생성 (한국어)
     print("HTML을 생성하는 중...")
-    generated_html = update_html_template(template_content, notes, invitation_parsed, members_parsed, program_parsed)
+    generated_html = update_html_template(template_content, notes, invitation_parsed, members_parsed, program_parsed, poster_content, history_content)
     
     # 파일 저장 (한국어)
     print(f"결과 파일 저장 중: {output_path}")
@@ -627,6 +747,16 @@ def main():
         print(f"영어 프로그램 파일 읽는 중: {program_en_path}")
         program_en_content = read_file(program_en_path)
         
+        # 영어 포스터 파일 읽기
+        poster_en_path = 'poster_en.md'
+        print(f"영어 포스터 파일 읽는 중: {poster_en_path}")
+        poster_en_content = read_file(poster_en_path)
+        
+        # 영어 연혁 파일 읽기
+        history_en_path = 'history_en.md'
+        print(f"영어 연혁 파일 읽는 중: {history_en_path}")
+        history_en_content = read_file(history_en_path)
+        
         if notes_en_content:
             # 영어 마크다운 파싱
             print("영어 마크다운 내용을 파싱하는 중...")
@@ -654,7 +784,7 @@ def main():
             
             # 영어 HTML 생성
             print("영어 HTML을 생성하는 중...")
-            generated_html_en = update_html_template(template_en_content, notes_en, invitation_en_parsed, members_en_parsed, program_en_parsed, is_english=True)
+            generated_html_en = update_html_template(template_en_content, notes_en, invitation_en_parsed, members_en_parsed, program_en_parsed, poster_en_content, history_en_content, is_english=True)
             
             # 영어 파일 저장
             print(f"영어 결과 파일 저장 중: {output_en_path}")

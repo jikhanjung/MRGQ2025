@@ -12,7 +12,7 @@
 <!-- 자동 생성됨: 2025-08-02 12:35:21 -->
 <!-- 자동 생성됨: 2025-08-02 12:38:23 -->
 <!-- 자동 생성됨: 2025-08-02 12:42:10 -->
-<!-- 자동 생성됨: 2025-08-02 19:52:47 -->
+<!-- 자동 생성됨: 2025-08-03 09:54:21 -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -261,6 +261,10 @@
             gap: 40px;
         }
 
+        .nav-links > li {
+            position: relative;
+        }
+
         .nav-links a {
             color: #ffffff;
             text-decoration: none;
@@ -269,12 +273,64 @@
             padding: 10px 15px;
             border-radius: 5px;
             transition: all 0.3s ease;
+            display: block;
         }
 
         .nav-links a:hover {
             background: rgba(236, 72, 153, 0.3);
             color: #fff;
             transform: translateY(-1px);
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(30, 58, 138, 0.98);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            color: #ffffff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1em;
+            border-radius: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(236, 72, 153, 0.4);
+            transform: none;
+        }
+
+        .dropdown-arrow {
+            margin-left: 5px;
+            font-size: 0.8em;
         }
 
         /* Program Link Styles */
@@ -338,12 +394,29 @@
         <div class="container">
             <div class="nav-container">
                 <ul class="nav-links">
-                    <li><a href="#invitation">초대의 말씀</a></li>
-                    <li><a href="#program">순서</a></li>
-                    <li><a href="#program-notes">곡 해설</a></li>
-                    <li><a href="#members">미련 사람들</a></li>
-                    <li><a href="#location">오시는 길</a></li>
-                    <li><a href="index_en.html" style="color: #ffd700; font-weight: 500; font-size: 0.9em;">Eng.</a></li>
+                    <li class="dropdown">
+                        <a href="#invitation">연주회 안내</a>
+                        <div class="dropdown-content">
+                            <a href="#invitation">초대의 말씀</a>
+                            <a href="#poster">포스터 소개</a>
+                            <a href="#location">오시는 길</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#program">프로그램</a>
+                        <div class="dropdown-content">
+                            <a href="#program">연주 순서</a>
+                            <a href="#program-notes">곡 해설</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#members">미련 소개</a>
+                        <div class="dropdown-content">
+                            <a href="#members">미련 사람들</a>
+                            <a href="#history">미련의 발자취</a>
+                        </div>
+                    </li>
+                    <li><a href="index_en.html" style="color: #ffd700; font-weight: 500; font-size: 0.9em;">English</a></li>
                 </ul>
             </div>
         </div>
@@ -363,6 +436,31 @@
                 <p>아시다시피 미련은 未練, 연성이 덜 됐다는 뜻이지요. 이번 연주회에 미련을 남기고, 조금 더 성장하여 돌아오겠습니다. 항상 부족한 연주회를 완성해 주시는 관객 여러분께 진심으로 감사드립니다.</p>
                 <div style="text-align: right"><br><em>미련을 대표하여</em>  <br><strong>전예완</strong><br></div>
             </div>
+            </div>
+        </section>
+
+        <section id="poster" class="container">
+            <h2>포스터 소개</h2>
+            <div class="note">
+<div style="text-align: center; margin: 20px 0;"><img src="MRGQ2025Poster.jpg" alt="미련2025 포스터" style="max-width: 400px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"></div>
+<div style="margin: 20px 0;"><p style="margin: 5px 0; font-weight: bold; text-align: center;">조유란 작가</p><p style="margin: 5px 0; font-weight: bold; text-align: center;"><없는 것이 본다></p><p style="margin: 5px 0; font-weight: bold; text-align: center;">캔버스에 유채</p><p style="margin: 5px 0; font-weight: bold; text-align: center;">90.9 x 72.7cm</p><p style="margin: 5px 0; font-weight: bold; text-align: center;">2025</p></div>
+<p>미련을 평생 지켜봐 온 조유란 작가가 《미련2025》를 위해 창작한 작품, <strong><없는 것이 본다></strong>.</p>
+<p>기타의 사운드홀에서 뛰쳐나오는 푸른 호랑이, 이를 내려다보는 거대한 푸른 눈 - 호랑이는 공포의 형상이지만, 얼굴도 몸도 없는 정체불명의 시선은 그 호랑이를 압도하는 한층 더 큰 공포이다. 둘 사이에 흐르는 긴장 및 압도되는 감정을 표현한 이 작품은, 《미련2025》 연주곡들의 인상을 작가가 이미지로 해석해 풀어낸 것이다.</p>
+<p>미련의 입장에서는 <em>"내 기타에서 나오는 소리도 공포, 미지의 관객은 더욱 압도적인 공포"</em>라는 매우 현실적 의미로 다가온다. 한편으론 미지의 관객이라는 존재가, 즉 '없는 것이 본다'는 사실이 호랑이를 빚어내는지도 모른다. 우리들의 기타에서 저렇게 잘생긴 푸른 호랑이가 나온다면야!</p>
+</div>
+        </section>
+
+        <section id="location" class="container">
+            <h2>오시는 길</h2>
+            
+            <div class="note">
+                <h3>SCC홀 (예술의전당 길 건너편)</h3>
+                <div style="text-align: center; margin: 20px 0;">
+                    <img src="SCCMap2025.png" alt="SCC홀 오시는 길 지도" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                </div>
+                <p style="text-align: center; margin-top: 15px; color: #666; font-style: italic;">
+                    지하철 3호선 남부터미널역 5번 출구에서 도보 8분
+                </p>
             </div>
         </section>
 
@@ -549,7 +647,7 @@
             <div id="알-디-메올라-그랜드-패션" class="note">
                 <h3 style="color: #2c1810;">알 디 메올라, 그랜드 패션</h3>
                 <h4 style="color: #8b6f3a; margin-top: -10px; margin-bottom: 20px; font-weight: 400; font-style: italic;">Al Di Meola (1954-), The Grande Passion</h4>
-                <p>퓨전 및 라틴 재즈 기타리스트 겸 작곡가인 알 디 메올라는 특유의 라틴-지중해 리듬의 작곡 스타일과 독보적인 연주 테크닉, 다양한 뮤지션들과의 콜라보로 클래식기타를 즐기는 이들도 들어봤을 법한 이름이다. <The Grande Passion>은 2000년 발매한 앨범의 중심곡으로 원래 기타와 오케스트라 협연의 스케일이 큰 곡이다. 미련의 연주 지평을 넓히려는 소소한 시도로 올려본다.</p>
+                <p>퓨전 및 라틴 재즈 기타리스트 겸 작곡가인 알 디 메올라는 특유의 라틴-지중해 리듬의 작곡 스타일과 독보적인 연주 테크닉, 다양한 뮤지션들과의 콜라보로 클래식기타를 즐기는 이들도 들어봤을 법한 이름이다. &lt;The Grande Passion&gt;은 2000년 발매한 앨범의 중심곡으로 원래 기타와 오케스트라 협연의 스케일이 큰 곡이다. 미련의 연주 지평을 넓히려는 소소한 시도로 올려본다.</p>
                 <p>'Passion'은 보통 열정을 뜻하지만 라틴어 어원의 뜻은 놀랍게도 고통, 수난(受難)이라고 한다. '위대한 열정'은 또한 '크나큰 수난'인 것이다. 신비로운 분위기의 원곡도, 여기 선보이는 알 디 메올라와 바루에코의 듀엣 버전도 마냥 뜨거운 열정을 드러내기보다는 제목의 뜻만큼이나 묘하고 복합적인 인상을 남긴다.</p>
                 <p><div style="text-align: right"><em>(by 하진)</em></div></p>
             </div>
@@ -622,19 +720,59 @@
             </div>
         </section>
 
-        <section id="location" class="container">
-            <h2>오시는 길</h2>
-            
+        <section id="history" class="container">
+            <h2>미련의 발자취</h2>
             <div class="note">
-                <h3>SCC홀 (예술의전당 길 건너편)</h3>
-                <div style="text-align: center; margin: 20px 0;">
-                    <img src="SCCMap2025.png" alt="SCC홀 오시는 길 지도" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                </div>
-                <p style="text-align: center; margin-top: 15px; color: #666; font-style: italic;">
-                    지하철 3호선 남부터미널역 5번 출구에서 도보 8분
-                </p>
-            </div>
+<h3>2000년</h3>
+<p><strong>10월</strong><br><strong>미련 전격 결성</strong></p>
+</div>
+<div class="note">
+<h3>2001년</h3>
+<p><strong>3월 24일</strong><br><strong>제1회 연주회</strong><br><em>장소</em>: 서울대학교 두레문예관 공연장<br><em>프로그램</em>:<br>- 바이올린과 피아노를 위한 소나타 제5번 '봄' (베토벤)<br>- 바이올린 소나타 제5번 (비버)<br>- 죽은 왕녀를 위한 파반 (라벨)<br>- 현악사중주 제14번 '죽음과 소녀' (슈베르트) - 제2악장<br>- 바이올린 협주곡 제2번 (바흐, BWV 1042) - 제1악장</p>
+<p><strong>7월 28일</strong><br><strong>제2회 연주회</strong><br><em>장소</em>: 서울대학교 문화관 소강당<br><em>프로그램</em>:<br>- 아다지오와 푸가 C단조 (모차르트, KV 546)<br>- 현악사중주 제14번 (드보르작) - 제2악장<br>- 오르간 협주곡 제6번 B♭장조 (헨델, HWV 294) - 전악장<br>- 현악사중주 제14번 '죽음과 소녀' (슈베르트) - 제2악장<br>- 재즈오케스트라를 위한 모음곡 제1번 (쇼스타코비치) - 전곡</p>
+</div>
+<div class="note">
+<h3>2002년</h3>
+<p><strong>1월 26일</strong><br><strong>제3회 연주회</strong><br><em>장소</em>: 서울대학교 두레문예관 공연장<br><em>프로그램</em>:<br>- 페트루슈카 (스트라빈스키) - 전곡<br>- 전람회의 그림 (무소르그스키) - 전곡</p>
+</div>
+<div class="note">
+<h3>2003년</h3>
+<p><strong>4월 19일</strong><br><strong>제4회 연주회: 四人四色</strong><br><em>장소</em>: 서울대학교 음악대학 예술관 콘서트홀<br><em>프로그램</em>:<br>- 현악사중주 제14번 '죽음과 소녀' (슈베르트) - 전악장</p>
+</div>
+<div class="note">
+<h3>2004년</h3>
+<p><strong>7월 23일</strong><br><strong>제5회 연주회: 미련 in Bach</strong><br><em>장소</em>: 서울대학교 두레문예관 공연장<br><em>프로그램</em>:<br>- 두 대의 하프시코드를 위한 협주곡 C장조 (바흐, BWV 1061) - 제3악장<br>- 모음곡 A단조: 가보트와 6개의 더블 (라모)<br>- 푸가 엘레지아카 (카스텔누오보-테데스코)<br>- 돌리 모음곡 (포레) - 전곡<br>- 두 대의 하프시코드를 위한 협주곡 C단조 (바흐, BWV 1062) - 전악장<br>- 브라질풍의 바흐 제1번 (빌라-로보스) - 전악장</p>
+</div>
+<div class="note">
+<h3>2006년</h3>
+<p><strong>12월</strong><br><strong>김하진 출국 기념 독주회 및 환송 연주회</strong><br><em>장소</em>: 서울대학교 두레문예관 405호<br><em>프로그램</em>:<br>- 부에노스 아이레스의 사계 (피아졸라)<br>- 류트 모음곡 제3번 (바흐, BWV 995) - 프렐류드<br>- 어린이 정경 (슈만) - '트로이메라이'<br>- 바이올린소나타 제5번 (비버)<br>- 죽은 왕녀를 위한 파반 (라벨)<br>- 루마니아 민속 무곡 (바르톡) - 전곡</p>
+</div>
+<div class="note">
+<h3>2009년</h3>
+<p><strong>3월 29일</strong><br><strong>김하진 귀국 기념 '와인과 함께 하는 연주회'</strong><br><em>장소</em>: 서울대학교 두레문예관 406호<br><em>프로그램</em>:<br>- 카스티야 모음곡 (토로바) - '판당기요'<br>- 상속인 리에라 (요벳)<br>- 골드베르크 변주곡 (바흐, BWV 988) 외</p>
+</div>
+<div class="note">
+<h3>2011년</h3>
+<p><strong>4월 17일</strong><br><strong>한국대학생클래식기타연합회 '추모연주회' 참여</strong><br><em>연주자</em>: 전예완, 조은석, 오예진<br><em>장소</em>: 한국 기타 문예원 어웨이던<br><em>프로그램</em>:<br>- 죽은 왕녀를 위한 파반 (라벨)<br>- 푸가 A단조 (바흐, BWV 947)</p>
+</div>
+<div class="note">
+<h3>2012년</h3>
+<p><strong>8월 4일</strong><br><strong>서울대학교 고전기타합주단 화현회 45주년 기념 OB연주회 참여</strong><br><em>연주자</em>: 전예완, 조은석, 오예진<br><em>장소</em>: 서울대학교 관악사 가온홀<br><em>프로그램</em>:<br>- 토카타와 푸가 D단조 (바흐, BWV 565)</p>
+</div>
+<div class="note">
+<h3>2014년</h3>
+<p><strong>10월 18일</strong><br><strong>제6회 연주회: 미련 Reloaded</strong><br><em>장소</em>: 삼모아트센터 라비니아홀<br><em>프로그램</em>:<br>- 피가로의 결혼 (모차르트) - 서곡<br>- 두 대의 하프시코드를 위한 협주곡 C장조 (바흐, BWV 1062) - 제1악장<br>- 프랑스 모음곡 제5번 (바흐, BWV 816) - 전곡<br>- 탱고의 역사 (피아졸라) - '보르델 1900', '카페 1930', '나이트클럽 1960'<br>- 루마니아 민속 무곡 (바르톡) - 전곡<br>- 천사의 죽음 (피아졸라)</p>
+</div>
+<div class="note">
+<h3>2017년</h3>
+<p><strong>8월 5일</strong><br><strong>서울대학교 고전기타합주단 화현회 50주년 기념 OB연주회 참여</strong><br><em>장소</em>: 서울대학교 관악사 가온홀<br><em>프로그램</em>:<br>- 四季: '여름' (비발디) - 전악장</p>
+</div>
+<div class="note">
+<h3>2018년</h3>
+<p><strong>2월 25일</strong><br><strong>이종숙 선생님 정년퇴임 기념 작은 음악회 "황폐의 정원에서 사랑을 노래하다": Renaissance Consort Music & Lute Songs</strong><br><em>장소</em>: 링컨홀<br><em>프로그램</em>:<br>- 디도와 아에네아스 (퍼셀) - 서곡<br>- 압델라자르 모음곡 (퍼셀) - 전곡<br>- 그린슬리브즈 (작자미상)<br>- 윌로우 송 (험프리)<br>- 컴 어게인 (다울랜드)<br>- 플랫 파반과 가야르드 (존슨)<br>- 비 랑에 노흐 (바일)</p>
+</div>
         </section>
+
     </main>
 
     <footer>

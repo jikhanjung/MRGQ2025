@@ -12,7 +12,7 @@
 <!-- 자동 생성됨: 2025-08-02 12:35:21 -->
 <!-- 자동 생성됨: 2025-08-02 12:38:23 -->
 <!-- 자동 생성됨: 2025-08-02 12:42:10 -->
-<!-- 자동 생성됨: 2025-08-02 19:52:47 -->
+<!-- 자동 생성됨: 2025-08-03 09:54:21 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -261,6 +261,10 @@
             gap: 40px;
         }
 
+        .nav-links > li {
+            position: relative;
+        }
+
         .nav-links a {
             color: #ffffff;
             text-decoration: none;
@@ -269,12 +273,64 @@
             padding: 10px 15px;
             border-radius: 5px;
             transition: all 0.3s ease;
+            display: block;
         }
 
         .nav-links a:hover {
             background: rgba(236, 72, 153, 0.3);
             color: #fff;
             transform: translateY(-1px);
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(30, 58, 138, 0.98);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            color: #ffffff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1em;
+            border-radius: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(236, 72, 153, 0.4);
+            transform: none;
+        }
+
+        .dropdown-arrow {
+            margin-left: 5px;
+            font-size: 0.8em;
         }
 
         /* Program Link Styles */
@@ -338,11 +394,28 @@
         <div class="container">
             <div class="nav-container">
                 <ul class="nav-links">
-                    <li><a href="#invitation">Invitation</a></li>
-                    <li><a href="#program">Program</a></li>
-                    <li><a href="#program-notes">Program Notes</a></li>
-                    <li><a href="#members">Members</a></li>
-                    <li><a href="#location">Directions</a></li>
+                    <li class="dropdown">
+                        <a href="#invitation">Concert Info</a>
+                        <div class="dropdown-content">
+                            <a href="#invitation">Invitation</a>
+                            <a href="#poster">Poster</a>
+                            <a href="#location">Directions</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#program">Program</a>
+                        <div class="dropdown-content">
+                            <a href="#program">Performance Order</a>
+                            <a href="#program-notes">Program Notes</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#members">About Miryeon</a>
+                        <div class="dropdown-content">
+                            <a href="#members">Members</a>
+                            <a href="#history">History</a>
+                        </div>
+                    </li>
                     <li><a href="index_kr.html" style="color: #ffd700; font-weight: 500; font-size: 0.9em;">한글</a></li>
                 </ul>
             </div>
@@ -363,6 +436,31 @@
                 <p>As you know, Miryeon (未練) means incomplete training or lingering attachment. We will leave some miryeon from this concert and return having grown a little more. We sincerely thank all our audience members who always complete our insufficient concerts.</p>
                 <div style="text-align: right"><br><em>On behalf of Miryeon</em>  <br><strong>Jeon Yewan</strong><br></div>
             </div>
+            </div>
+        </section>
+
+        <section id="poster" class="container">
+            <h2>Poster</h2>
+            <div class="note">
+<div style="text-align: center; margin: 20px 0;"><img src="MRGQ2025Poster.jpg" alt="Miryeon2025 Poster" style="max-width: 400px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"></div>
+<div style="margin: 20px 0;"><p style="margin: 5px 0; font-weight: bold; text-align: center;">Cho Yuran</p><p style="margin: 5px 0; font-weight: bold; text-align: center;"><The Unseen Sees></p><p style="margin: 5px 0; font-weight: bold; text-align: center;">Oil on canvas</p><p style="margin: 5px 0; font-weight: bold; text-align: center;">90.9 x 72.7cm</p><p style="margin: 5px 0; font-weight: bold; text-align: center;">2025</p></div>
+<p>Artist Cho Yuran, who has watched over Miryeon throughout her life, created this work <strong><The Unseen Sees></strong> for 《Miryeon 2025》.</p>
+<p>A blue tiger leaping from the guitar's sound hole, a giant blue eye looking down upon it - while the tiger is a figure of fear, the unidentified gaze without face or body is an even greater terror that overwhelms the tiger. This work expresses the tension and overwhelming emotions flowing between the two, interpreting the impressions of 《Miryeon 2025》's performance pieces through the artist's visual language.</p>
+<p>From Miryeon's perspective, this carries the very realistic meaning: <em>"The sound from my guitar is fear, the unknown audience is even more overwhelming fear."</em> On the other hand, perhaps the existence of the unknown audience, the fact that 'the unseen sees,' is what shapes the tiger. If only such a handsome blue tiger could emerge from our guitars!</p>
+</div>
+        </section>
+
+        <section id="location" class="container">
+            <h2>Directions</h2>
+            
+            <div class="note">
+                <h3>SCC Hall (Across from Seoul Arts Center)</h3>
+                <div style="text-align: center; margin: 20px 0;">
+                    <img src="SCCMap2025.png" alt="SCC Hall Directions Map" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                </div>
+                <p style="text-align: center; margin-top: 15px; color: #666; font-style: italic;">
+                    8-minute walk from Exit 5 of Nambu Terminal Station (Line 3)
+                </p>
             </div>
         </section>
 
@@ -610,19 +708,59 @@
             </div>
         </section>
 
-        <section id="location" class="container">
-            <h2>Directions</h2>
-            
+        <section id="history" class="container">
+            <h2>History</h2>
             <div class="note">
-                <h3>SCC Hall (Across from Seoul Arts Center)</h3>
-                <div style="text-align: center; margin: 20px 0;">
-                    <img src="SCCMap2025.png" alt="SCC홀 오시는 길 지도" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                </div>
-                <p style="text-align: center; margin-top: 15px; color: #666; font-style: italic;">
-                    8-minute walk from Nambu Terminal Station (Line 3) Exit 5
-                </p>
-            </div>
+<h3>2000</h3>
+<p><strong>October</strong><br><strong>Formation of Miryeon</strong></p>
+</div>
+<div class="note">
+<h3>2001</h3>
+<p><strong>March 24</strong><br><strong>1st Concert</strong><br><em>Venue</em>: Seoul National University Doore Hall<br><em>Program</em>:<br>- Violin Sonata No. 5 'Spring' (Beethoven)<br>- Violin Sonata No. 5 (Biber)<br>- Pavane for a Dead Princess (Ravel)<br>- String Quartet No. 14 'Death and the Maiden' (Schubert) - 2nd Movement<br>- Violin Concerto No. 2 (Bach, BWV 1042) - 1st Movement</p>
+<p><strong>July 28</strong><br><strong>2nd Concert</strong><br><em>Venue</em>: Seoul National University Culture Center Small Hall<br><em>Program</em>:<br>- Adagio and Fugue in C minor (Mozart, KV 546)<br>- String Quartet No. 14 (Dvořák) - 2nd Movement<br>- Organ Concerto No. 6 in B♭ major (Handel, HWV 294) - All Movements<br>- String Quartet No. 14 'Death and the Maiden' (Schubert) - 2nd Movement<br>- Suite No. 1 for Jazz Orchestra (Shostakovich) - Complete</p>
+</div>
+<div class="note">
+<h3>2002</h3>
+<p><strong>January 26</strong><br><strong>3rd Concert</strong><br><em>Venue</em>: Seoul National University Doore Hall<br><em>Program</em>:<br>- Petrushka (Stravinsky) - Complete<br>- Pictures at an Exhibition (Mussorgsky) - Complete</p>
+</div>
+<div class="note">
+<h3>2003</h3>
+<p><strong>April 19</strong><br><strong>4th Concert: Four People, Four Colors</strong><br><em>Venue</em>: Seoul National University College of Music Concert Hall<br><em>Program</em>:<br>- String Quartet No. 14 'Death and the Maiden' (Schubert) - All Movements</p>
+</div>
+<div class="note">
+<h3>2004</h3>
+<p><strong>July 23</strong><br><strong>5th Concert: Miryeon in Bach</strong><br><em>Venue</em>: Seoul National University Doore Hall<br><em>Program</em>:<br>- Concerto for Two Harpsichords in C major (Bach, BWV 1061) - 3rd Movement<br>- Suite in A minor: Gavotte with 6 Doubles (Rameau)<br>- Fuga Elegiaca (Castelnuovo-Tedesco)<br>- Dolly Suite (Fauré) - Complete<br>- Concerto for Two Harpsichords in C minor (Bach, BWV 1062) - All Movements<br>- Bachianas Brasileiras No. 1 (Villa-Lobos) - All Movements</p>
+</div>
+<div class="note">
+<h3>2006</h3>
+<p><strong>December</strong><br><strong>Kim Hajin's Farewell Solo Concert and Send-off Performance</strong><br><em>Venue</em>: Seoul National University Doore Hall Room 405<br><em>Program</em>:<br>- The Four Seasons of Buenos Aires (Piazzolla)<br>- Lute Suite No. 3 (Bach, BWV 995) - Prelude<br>- Kinderszenen (Schumann) - 'Träumerei'<br>- Violin Sonata No. 5 (Biber)<br>- Pavane for a Dead Princess (Ravel)<br>- Romanian Folk Dances (Bartók) - Complete</p>
+</div>
+<div class="note">
+<h3>2009</h3>
+<p><strong>March 29</strong><br><strong>Kim Hajin's Return Concert 'Concert with Wine'</strong><br><em>Venue</em>: Seoul National University Doore Hall Room 406<br><em>Program</em>:<br>- Suite Castellana (Torroba) - 'Fandanguillo'<br>- El Testament d'Amelia (Llobet)<br>- Goldberg Variations (Bach, BWV 988) and others</p>
+</div>
+<div class="note">
+<h3>2011</h3>
+<p><strong>April 17</strong><br><strong>Participation in Korean University Classical Guitar Association 'Memorial Concert'</strong><br><em>Performers</em>: Jeon Yewan, Cho Eunseok, Oh Yejin<br><em>Venue</em>: Korea Guitar Arts Center AWAYDON<br><em>Program</em>:<br>- Pavane for a Dead Princess (Ravel)<br>- Fugue in A minor (Bach, BWV 947)</p>
+</div>
+<div class="note">
+<h3>2012</h3>
+<p><strong>August 4</strong><br><strong>Participation in Seoul National University Classical Guitar Ensemble Hwahyeon Society 45th Anniversary OB Concert</strong><br><em>Performers</em>: Jeon Yewan, Cho Eunseok, Oh Yejin<br><em>Venue</em>: Seoul National University Gwanak-sa Gaon Hall<br><em>Program</em>:<br>- Toccata and Fugue in D minor (Bach, BWV 565)</p>
+</div>
+<div class="note">
+<h3>2014</h3>
+<p><strong>October 18</strong><br><strong>6th Concert: Miryeon Reloaded</strong><br><em>Venue</em>: Sammo Art Center Ravinia Hall<br><em>Program</em>:<br>- The Marriage of Figaro (Mozart) - Overture<br>- Concerto for Two Harpsichords in C major (Bach, BWV 1062) - 1st Movement<br>- French Suite No. 5 (Bach, BWV 816) - Complete<br>- History of Tango (Piazzolla) - 'Bordel 1900', 'Café 1930', 'Night Club 1960'<br>- Romanian Folk Dances (Bartók) - Complete<br>- La Muerte del Ángel (Piazzolla)</p>
+</div>
+<div class="note">
+<h3>2017</h3>
+<p><strong>August 5</strong><br><strong>Participation in Seoul National University Classical Guitar Ensemble Hwahyeon Society 50th Anniversary OB Concert</strong><br><em>Venue</em>: Seoul National University Gwanak-sa Gaon Hall<br><em>Program</em>:<br>- The Four Seasons: 'Summer' (Vivaldi) - All Movements</p>
+</div>
+<div class="note">
+<h3>2018</h3>
+<p><strong>February 25</strong><br><strong>Professor Lee Jong-sook's Retirement Commemorative Concert "Singing Love in the Garden of Desolation": Renaissance Consort Music & Lute Songs</strong><br><em>Venue</em>: Lincoln Hall<br><em>Program</em>:<br>- Dido and Aeneas (Purcell) - Overture<br>- Abdelazer Suite (Purcell) - Complete<br>- Greensleeves (Anonymous)<br>- Willow Song (Humfrey)<br>- Come Again (Dowland)<br>- Flat Pavan and Galliard (Johnson)<br>- Wie lange noch (Weill)</p>
+</div>
         </section>
+
     </main>
 
     <footer>
