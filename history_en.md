@@ -131,3 +131,28 @@
 - Come Again (Dowland)
 - Flat Pavan and Galliard (Johnson)
 - Wie lange noch (Weill)
+
+## 2020
+
+**August 1**
+**Miryeon 20th Anniversary Concert "Miryeon 2020"**  
+*Venue*: SCC Hall  
+*Program*:
+- Oboe Concerto (Marcello) - Complete
+- L'estro armonico (Vivaldi) - Complete
+- Córdoba (Albéniz)
+- Valses poéticos (Granados)
+- Fantasia (Sor)
+- Odeon (Nazareth)
+- Cavatina (Myers)
+- Hungarian Rhapsody (Liszt)
+
+## 2023
+
+**September 1**
+**Participation in Hwahyeon Society 61st Regular Concert**  
+*Venue*: Seoul National University Gwanak-sa Gaon Hall  
+*Program*:
+- Brandenburg Concerto No.6 (Bach) - 3rd Movement
+- La muerte del ángel (Piazzolla)
+- Violin Partita No.2, V. Chaconne (Bach)

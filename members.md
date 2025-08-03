@@ -23,7 +23,7 @@ UNIST 교수. Single Molecule Biophysics를 연구한다.
 기타, 피아노, 연구, 요리, 집안일, 모든 것에 100%를 추구한다.
 
 ### 오예진
-CJ제일제당 Global Category Master. 햇반을 비롯한 다양한 가공식품을 개발한다.  
+CJ제일제당 Global Category Master. 햇반과 다양한 가공식품을 개발한다.  
 미련의 에이스. 미련의 진실의 입.  
 몇 년 전부터는 다 커버린 딸들 대신 농작물을 키우고 있다.
 

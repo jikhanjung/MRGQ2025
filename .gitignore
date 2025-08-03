@@ -1,2 +1,5 @@
 concert-nextjs/
 index_backup.html
+__pycache__/
+server.log
+server.pid
