@@ -12,7 +12,7 @@
 <!-- 자동 생성됨: 2025-08-02 12:35:21 -->
 <!-- 자동 생성됨: 2025-08-02 12:38:23 -->
 <!-- 자동 생성됨: 2025-08-02 12:42:10 -->
-<!-- 자동 생성됨: 2025-08-03 13:40:04 -->
+<!-- 자동 생성됨: 2025-08-03 16:23:55 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -303,7 +303,8 @@
             backdrop-filter: blur(10px);
         }
 
-        .dropdown:hover .dropdown-content {
+        .dropdown:hover .dropdown-content,
+        .dropdown.active .dropdown-content {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
@@ -776,5 +777,52 @@
             <p>&copy; 2025 Miryeon Classical Guitar Ensemble. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Mobile dropdown menu handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                const trigger = dropdown.querySelector('a');
+                
+                trigger.addEventListener('click', function(e) {
+                    // Check if this is a mobile device or touch device
+                    if (window.innerWidth <= 768 || 'ontouchstart' in window) {
+                        e.preventDefault();
+                        
+                        // Close all other dropdowns
+                        dropdowns.forEach(otherDropdown => {
+                            if (otherDropdown !== dropdown) {
+                                otherDropdown.classList.remove('active');
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown')) {
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Close dropdown when clicking on submenu item
+            const dropdownLinks = document.querySelectorAll('.dropdown-content a');
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
