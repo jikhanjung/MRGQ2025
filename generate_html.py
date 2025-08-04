@@ -202,14 +202,25 @@ def generate_program_notes_html(notes, is_english=False):
                     # 영어 버전에서는 부제목을 표시하지 않음 (이미 메인 제목이 영어이므로)
                     if not is_english:
                         english_title = paragraph.strip()[3:].strip()
-                        paragraph_html.append(f'                <h4 style="color: #8b6f3a; margin-top: -10px; margin-bottom: 20px; font-weight: 400; font-style: italic;">{english_title}</h4>')
+                        if ", " in english_title:
+                            e_composer, e_title = english_title.split(", ", 1)
+                            paragraph_html.append(f'                <h4 style="color: #8b6f3a; margin-top: -10px; margin-bottom: 20px; font-weight: 400;"><span style="color: #4a2c1a;">{e_composer}</span>, <span style="color: #8b6f3a; font-style: italic;">{e_title}</span></h4>')
+                        else:
+                            paragraph_html.append(f'                <h4 style="color: #8b6f3a; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">{english_title}</h4>')
                 else:
                     # 마크다운 이탤릭 변환: *(by 작성자)* -> <em>(by 작성자)</em>
                     paragraph = re.sub(r'\*(.*?)\*', r'<em>\1</em>', paragraph.strip())
                     paragraph_html.append(f'                <p>{paragraph}</p>')
         
+        # 한국어 제목도 작곡가와 곡명을 분리하여 색상 구분
+        if ", " in note['title']:
+            k_composer, k_title = note['title'].split(", ", 1)
+            korean_title_html = f'<span style="color: #4a2c1a;">{k_composer}</span>, <span style="color: #8b6f3a; font-style: italic;">{k_title}</span>'
+        else:
+            korean_title_html = note['title']
+            
         note_html = f'''            <div id="{note['id']}" class="note">
-                <h3 style="color: #2c1810;">{note['title']}</h3>
+                <h3>{korean_title_html}</h3>
 {chr(10).join(paragraph_html)}
             </div>'''
         
