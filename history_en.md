@@ -135,7 +135,7 @@
 ## 2020
 
 **August 1**
-**Miryeon 20th Anniversary Concert "Miryeon 2020"**  
+**Miryeon 20th Anniversary Concert 《Miryeon 2020》**  
 *Venue*: SCC Hall  
 *Program*:
 - Oboe Concerto (Marcello) - Complete
