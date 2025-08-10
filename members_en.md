@@ -13,7 +13,7 @@ Automotive battery design is still interesting. Work doesn't interfere with guit
 In charge of groove for Miryeon. A guitar master dreaming of transcendence.
 
 ### Cho Eunseok
-Principal Research Engineer, System Package Lab, Semiconductor Research Center, Samsung Electronics.
+Principal Research Engineer, PKG Development Team, Semiconductor Research Center, Samsung Electronics.
 Miryeon's commander-in-chief. Without him, there is no Miryeon.
 A philosopher who gains insight into life by plowing fields and pulling weeds.
 
