@@ -186,6 +186,46 @@ def parse_markdown_program(markdown_content):
     return program
 
 
+def create_performance_groups():
+    """연주 그룹별로 곡을 묶어서 반환합니다."""
+    return [
+        {
+            'name': '4중주 - 오예진, 전예완, 김하진, 조은석',
+            'image': '1. 4중주.jpg',
+            'pieces': ['조아키노-로시니-도둑까치-서곡']
+        },
+        {
+            'name': '3중주 - 전예완, 오예진, 조은석',
+            'image': '2. 3중주.jpg',
+            'pieces': ['요한-제바스티안-바흐-토카타와-푸가-d단조-bwv-565']
+        },
+        {
+            'name': '2중주 - 조은석, 오예진',
+            'image': '3. 듀오-은석예진.jpg',
+            'pieces': ['호르헤-카르도소-밀롱가', '모리스-라벨-죽은-왕녀를-위한-파반느']
+        },
+        {
+            'name': '솔로 - 양진호',
+            'image': '4. 솔로-진호.jpg',
+            'pieces': ['페르난도-소르-마적-주제에-의한-변주곡']
+        },
+        {
+            'name': '2중주 - 전예완, 오예진',
+            'image': '5. 듀오-예완예진.jpg',
+            'pieces': ['영국-민요-프란시스-커팅-그린슬리브즈', '프란츠-슈베르트-겨울나그네-중-1-안녕히', '에이토르-빌라로부스-브라질풍의-바흐-제5번-1-아리아']
+        },
+        {
+            'name': '2중주 - 김하진, 양진호',
+            'image': '6. 듀오-하진진호.jpg',
+            'pieces': ['알-디-메올라-그랜드-패션', '마누엘-드-파야-허무한-인생-중-스페인-춤곡-제1번', '이삭-알베니스-카스티야']
+        },
+        {
+            'name': '5중주 - 오예진, 전예완, 김하진, 양진호, 조은석',
+            'image': '7. 5중주.jpg',
+            'pieces': ['안토닌-드보르자크-교향곡-제9번-신세계로부터-제-4악장']
+        }
+    ]
+
 def create_image_mapping():
     """곡해설 ID와 이미지 파일명을 매핑하는 사전을 생성합니다."""
     return {
@@ -207,67 +247,75 @@ def create_image_mapping():
 def generate_program_notes_html(notes, is_english=False):
     """프로그램 노트들을 HTML로 변환합니다."""
     html_parts = []
-    image_mapping = create_image_mapping_en() if is_english else create_image_mapping()
-    used_images = set()  # 이미 사용된 이미지를 추적
     
-    for note in notes:
-        # 해당 곡에 대한 이미지가 있는지 확인
-        image_filename = image_mapping.get(note['id'])
+    # 연주 그룹 정보 가져오기
+    performance_groups = create_performance_groups_en() if is_english else create_performance_groups()
+    
+    # 노트들을 ID로 찾을 수 있도록 딕셔너리로 변환
+    notes_dict = {note['id']: note for note in notes}
+    
+    # 각 연주 그룹별로 섹션 생성
+    for group in performance_groups:
+        group_html_parts = []
         
-        # 내용을 문단별로 나누기
-        paragraphs = note['content'].split('\n\n')
-        paragraph_html = []
+        # 그룹 제목과 이미지 추가
+        group_html_parts.append(f'''            <div class="performance-group-section">
+                <h3 style="color: #2c1810; border-bottom: 2px solid #8b6f3a; padding-bottom: 10px; margin-bottom: 20px;">{group['name']}</h3>
+                <div style="text-align: center; margin: 20px 0 30px 0;">
+                    <img src="{group['image']}" alt="{group['name']}" style="max-width: 800px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); object-fit: cover;">
+                </div>''')
         
-        # 영어 제목 처리 플래그
-        has_english_title = False
-        
-        for i, paragraph in enumerate(paragraphs):
-            if paragraph.strip():
-                # 첫 번째 문단이 ###으로 시작하면 영어 제목(부제목)으로 처리
-                if i == 0 and paragraph.strip().startswith('###'):
-                    # 영어 버전에서는 부제목을 표시하지 않음 (이미 메인 제목이 영어이므로)
-                    if not is_english:
-                        english_title = paragraph.strip()[3:].strip()
-                        if ", " in english_title:
-                            e_composer, e_title = english_title.split(", ", 1)
-                            paragraph_html.append(f'                <h4 style="color: #8b6f3a; margin-top: -10px; margin-bottom: 20px; font-weight: 400;"><span style="color: #4a2c1a;">{e_composer}</span>, <span style="color: #8b6f3a; font-style: italic;">{e_title}</span></h4>')
-                        else:
-                            paragraph_html.append(f'                <h4 style="color: #8b6f3a; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">{english_title}</h4>')
-                        has_english_title = True
-                        
-                        # 영어 제목 바로 다음에 이미지 추가
-                        if image_filename and image_filename not in used_images:
-                            image_html = f'''                <div style="text-align: center; margin: 20px 0 30px 0;">
-                    <img src="{image_filename}" alt="{note['title']}" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
-                </div>'''
-                            paragraph_html.append(image_html)
-                            used_images.add(image_filename)  # 사용된 이미지로 표시
-                else:
-                    # 마크다운 이탤릭 변환: *(by 작성자)* -> <em>(by 작성자)</em>
-                    paragraph = re.sub(r'\*(.*?)\*', r'<em>\1</em>', paragraph.strip())
-                    paragraph_html.append(f'                <p>{paragraph}</p>')
-        
-        # 영어 제목이 없는 경우 이미지를 맨 앞에 추가
-        if not has_english_title and image_filename and image_filename not in used_images:
-            image_html = f'''                <div style="text-align: center; margin: 20px 0 30px 0;">
-                    <img src="{image_filename}" alt="{note['title']}" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
-                </div>'''
-            paragraph_html.insert(0, image_html)
-            used_images.add(image_filename)
-        
-        # 한국어 제목도 작곡가와 곡명을 분리하여 색상 구분
-        if ", " in note['title']:
-            k_composer, k_title = note['title'].split(", ", 1)
-            korean_title_html = f'<span style="color: #4a2c1a;">{k_composer}</span>, <span style="color: #8b6f3a; font-style: italic;">{k_title}</span>'
-        else:
-            korean_title_html = note['title']
+        # 그룹 내의 각 곡에 대한 해설 추가
+        for piece_id in group['pieces']:
+            if piece_id not in notes_dict:
+                continue
+                
+            note = notes_dict[piece_id]
             
-        note_html = f'''            <div id="{note['id']}" class="note">
-                <h3>{korean_title_html}</h3>
+            # 내용을 문단별로 나누기
+            paragraphs = note['content'].split('\n\n')
+            paragraph_html = []
+            
+            # 영어 제목 처리 플래그
+            has_english_title = False
+            
+            for i, paragraph in enumerate(paragraphs):
+                if paragraph.strip():
+                    # 첫 번째 문단이 ###으로 시작하면 영어 제목(부제목)으로 처리
+                    if i == 0 and paragraph.strip().startswith('###'):
+                        # 영어 버전에서는 부제목을 표시하지 않음 (이미 메인 제목이 영어이므로)
+                        if not is_english:
+                            english_title = paragraph.strip()[3:].strip()
+                            if ", " in english_title:
+                                e_composer, e_title = english_title.split(", ", 1)
+                                paragraph_html.append(f'                    <h5 style="color: #8b6f3a; margin-top: -5px; margin-bottom: 20px; font-weight: 400; font-size: 1.1em;"><span style="color: #4a2c1a;">{e_composer}</span>, <span style="color: #8b6f3a; font-style: italic;">{e_title}</span></h5>')
+                            else:
+                                paragraph_html.append(f'                    <h5 style="color: #8b6f3a; margin-top: -5px; margin-bottom: 20px; font-weight: 400; font-size: 1.1em;">{english_title}</h5>')
+                            has_english_title = True
+                    else:
+                        # 마크다운 이탤릭 변환: *(by 작성자)* -> <em>(by 작성자)</em>
+                        paragraph = re.sub(r'\*(.*?)\*', r'<em>\1</em>', paragraph.strip())
+                        paragraph_html.append(f'                    <p>{paragraph}</p>')
+            
+            # 한국어 제목도 작곡가와 곡명을 분리하여 색상 구분
+            if ", " in note['title']:
+                k_composer, k_title = note['title'].split(", ", 1)
+                korean_title_html = f'<span style="color: #4a2c1a;">{k_composer}</span>, <span style="color: #8b6f3a; font-style: italic;">{k_title}</span>'
+            else:
+                korean_title_html = note['title']
+                
+            # 개별 곡 해설 div 생성
+            note_html = f'''                <div id="{note['id']}" class="note" style="margin-left: 20px; margin-top: 30px;">
+                    <h4 style="font-size: 1.3em; margin-bottom: 5px;">{korean_title_html}</h4>
 {chr(10).join(paragraph_html)}
-            </div>'''
+                </div>'''
+            
+            group_html_parts.append(note_html)
         
-        html_parts.append(note_html)
+        # 그룹 섹션 닫기
+        group_html_parts.append('            </div>')
+        
+        html_parts.append('\n'.join(group_html_parts))
     
     return '\n\n'.join(html_parts)
 
@@ -343,6 +391,46 @@ def create_piece_to_id_mapping():
         '안토닌 드보르자크, 교향곡 제9번 "신세계로부터" 제 4악장': '안토닌-드보르자크-교향곡-제9번-신세계로부터-제-4악장'
     }
 
+
+def create_performance_groups_en():
+    """영어 버전: 연주 그룹별로 곡을 묶어서 반환합니다."""
+    return [
+        {
+            'name': 'Quartet - Oh Yejin, Jeon Yewan, Kim Hajin, Cho Eunseok',
+            'image': '1. 4중주.jpg',
+            'pieces': ['gioachino-rossini-1792-1868-overture-to-la-gazza-ladra']
+        },
+        {
+            'name': 'Trio - Jeon Yewan, Oh Yejin, Cho Eunseok',
+            'image': '2. 3중주.jpg',
+            'pieces': ['johann-sebastian-bach-1685-1750-toccata-and-fugue-in-d-minor-bwv-565']
+        },
+        {
+            'name': 'Duo - Cho Eunseok, Oh Yejin',
+            'image': '3. 듀오-은석예진.jpg',
+            'pieces': ['jorge-cardoso-1949-milonga-from-24-piezas-sudamericanas', 'maurice-ravel-1875-1937-pavane-pour-une-infante-dfunte']
+        },
+        {
+            'name': 'Solo - Yang Jinho',
+            'image': '4. 솔로-진호.jpg',
+            'pieces': ['fernando-sor-1778-1839-introduction-and-variations-on-a-theme-by-mozart-op9']
+        },
+        {
+            'name': 'Duo - Jeon Yewan, Oh Yejin',
+            'image': '5. 듀오-예완예진.jpg',
+            'pieces': ['anon-francis-cutting-c1550-1596-greensleeves', 'franz-schubert-1797-1828-winterreise-op89-d911-1-gute-nacht', 'heitor-villa-lobos-1887-1959-bachianas-brasileiras-no5-1-aria-cantilena']
+        },
+        {
+            'name': 'Duo - Kim Hajin, Yang Jinho',
+            'image': '6. 듀오-하진진호.jpg',
+            'pieces': ['al-di-meola-1954-the-grande-passion', 'manuel-de-falla-18761946-spanish-dance-no1-from-la-vida-breve', 'isaac-albniz-1860-1909-castilla-seguidillas-from-suite-espaola-op47']
+        },
+        {
+            'name': 'Quintet - Oh Yejin, Jeon Yewan, Kim Hajin, Yang Jinho, Cho Eunseok',
+            'image': '7. 5중주.jpg',
+            'pieces': ['antonn-dvok-1841-1904-symphony-no9-in-e-minor-from-the-new-world-op95-iv-finale-allegro-con-fuoco']
+        }
+    ]
 
 def create_image_mapping_en():
     """영어 곡해설 ID와 이미지 파일명을 매핑하는 사전을 생성합니다."""
