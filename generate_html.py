@@ -186,14 +186,40 @@ def parse_markdown_program(markdown_content):
     return program
 
 
+def create_image_mapping():
+    """곡해설 ID와 이미지 파일명을 매핑하는 사전을 생성합니다."""
+    return {
+        '조아키노-로시니-도둑까치-서곡': '1. 4중주.jpg',
+        '요한-제바스티안-바흐-토카타와-푸가-d단조-bwv-565': '2. 3중주.jpg',
+        '호르헤-카르도소-밀롱가': '3. 듀오-은석예진.jpg',
+        '모리스-라벨-죽은-왕녀를-위한-파반느': '3. 듀오-은석예진.jpg',
+        '페르난도-소르-마적-주제에-의한-변주곡': '4. 솔로-진호.jpg',
+        '영국-민요-프란시스-커팅-그린슬리브즈': '5. 듀오-예완예진.jpg',
+        '프란츠-슈베르트-겨울나그네-중-1-안녕히': '5. 듀오-예완예진.jpg',
+        '에이토르-빌라로부스-브라질풍의-바흐-제5번-1-아리아': '5. 듀오-예완예진.jpg',
+        '알-디-메올라-그랜드-패션': '6. 듀오-하진진호.jpg',
+        '마누엘-드-파야-허무한-인생-중-스페인-춤곡-제1번': '6. 듀오-하진진호.jpg',
+        '이삭-알베니스-카스티야': '6. 듀오-하진진호.jpg',
+        '안토닌-드보르자크-교향곡-제9번-신세계로부터-제-4악장': '7. 5중주.jpg'
+    }
+
+
 def generate_program_notes_html(notes, is_english=False):
     """프로그램 노트들을 HTML로 변환합니다."""
     html_parts = []
+    image_mapping = create_image_mapping_en() if is_english else create_image_mapping()
+    used_images = set()  # 이미 사용된 이미지를 추적
     
     for note in notes:
+        # 해당 곡에 대한 이미지가 있는지 확인
+        image_filename = image_mapping.get(note['id'])
+        
         # 내용을 문단별로 나누기
         paragraphs = note['content'].split('\n\n')
         paragraph_html = []
+        
+        # 영어 제목 처리 플래그
+        has_english_title = False
         
         for i, paragraph in enumerate(paragraphs):
             if paragraph.strip():
@@ -207,10 +233,27 @@ def generate_program_notes_html(notes, is_english=False):
                             paragraph_html.append(f'                <h4 style="color: #8b6f3a; margin-top: -10px; margin-bottom: 20px; font-weight: 400;"><span style="color: #4a2c1a;">{e_composer}</span>, <span style="color: #8b6f3a; font-style: italic;">{e_title}</span></h4>')
                         else:
                             paragraph_html.append(f'                <h4 style="color: #8b6f3a; margin-top: -10px; margin-bottom: 20px; font-weight: 400;">{english_title}</h4>')
+                        has_english_title = True
+                        
+                        # 영어 제목 바로 다음에 이미지 추가
+                        if image_filename and image_filename not in used_images:
+                            image_html = f'''                <div style="text-align: center; margin: 20px 0 30px 0;">
+                    <img src="{image_filename}" alt="{note['title']}" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                </div>'''
+                            paragraph_html.append(image_html)
+                            used_images.add(image_filename)  # 사용된 이미지로 표시
                 else:
                     # 마크다운 이탤릭 변환: *(by 작성자)* -> <em>(by 작성자)</em>
                     paragraph = re.sub(r'\*(.*?)\*', r'<em>\1</em>', paragraph.strip())
                     paragraph_html.append(f'                <p>{paragraph}</p>')
+        
+        # 영어 제목이 없는 경우 이미지를 맨 앞에 추가
+        if not has_english_title and image_filename and image_filename not in used_images:
+            image_html = f'''                <div style="text-align: center; margin: 20px 0 30px 0;">
+                    <img src="{image_filename}" alt="{note['title']}" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                </div>'''
+            paragraph_html.insert(0, image_html)
+            used_images.add(image_filename)
         
         # 한국어 제목도 작곡가와 곡명을 분리하여 색상 구분
         if ", " in note['title']:
@@ -298,6 +341,24 @@ def create_piece_to_id_mapping():
         '마누엘 드 파야, 《허무한 인생》 중 스페인 춤곡 제1번': '마누엘-드-파야-허무한-인생-중-스페인-춤곡-제1번',
         '이삭 알베니스, 카스티야': '이삭-알베니스-카스티야',
         '안토닌 드보르자크, 교향곡 제9번 "신세계로부터" 제 4악장': '안토닌-드보르자크-교향곡-제9번-신세계로부터-제-4악장'
+    }
+
+
+def create_image_mapping_en():
+    """영어 곡해설 ID와 이미지 파일명을 매핑하는 사전을 생성합니다."""
+    return {
+        'gioachino-rossini-1792-1868-overture-to-la-gazza-ladra': '1. 4중주.jpg',
+        'johann-sebastian-bach-1685-1750-toccata-and-fugue-in-d-minor-bwv-565': '2. 3중주.jpg',
+        'jorge-cardoso-1949-milonga-from-24-piezas-sudamericanas': '3. 듀오-은석예진.jpg',
+        'maurice-ravel-1875-1937-pavane-pour-une-infante-dfunte': '3. 듀오-은석예진.jpg',
+        'fernando-sor-1778-1839-introduction-and-variations-on-a-theme-by-mozart-op9': '4. 솔로-진호.jpg',
+        'anon-francis-cutting-c1550-1596-greensleeves': '5. 듀오-예완예진.jpg',
+        'franz-schubert-1797-1828-winterreise-op89-d911-1-gute-nacht': '5. 듀오-예완예진.jpg',
+        'heitor-villa-lobos-1887-1959-bachianas-brasileiras-no5-1-aria-cantilena': '5. 듀오-예완예진.jpg',
+        'al-di-meola-1954-the-grande-passion': '6. 듀오-하진진호.jpg',
+        'manuel-de-falla-18761946-spanish-dance-no1-from-la-vida-breve': '6. 듀오-하진진호.jpg',
+        'isaac-albniz-1860-1909-castilla-seguidillas-from-suite-espaola-op47': '6. 듀오-하진진호.jpg',
+        'antonn-dvok-1841-1904-symphony-no9-in-e-minor-from-the-new-world-op95-iv-finale-allegro-con-fuoco': '7. 5중주.jpg'
     }
 
 
