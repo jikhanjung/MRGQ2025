@@ -29,12 +29,12 @@ Since a few years ago, she has been growing crops instead of her fully grown dau
 
 ## Staff
 
-### Noh Kyunghee
+### Roh Kyunghee
 Ulsan University Professor. Teaches Korean classical literature.
 Loves old writings, books, people, objects, and places, and treats the thousand-year-old capital Gyeongju as her neighborhood playground.
 In charge of concert planning, liaison, promotion, and fundraising for Miryeon.
 
-### Jeong Jikhan
+### Jung Jikhan
 Paleontologist who studies very old things dug up from the ground.
 Enjoys kicking balls and making delicious food to share with others.
 In charge of Miryeon's technical systems including sheet music system, photo and video recording, audio recording, and editing.

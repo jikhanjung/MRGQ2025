@@ -222,7 +222,7 @@ def create_performance_groups():
         {
             'name': '5중주 - 오예진, 전예완, 김하진, 양진호, 조은석',
             'image': '7. 5중주.jpg',
-            'pieces': ['안토닌-드보르자크-교향곡-제9번-신세계로부터-제-4악장']
+            'pieces': ['안토닌-드보르자크-교향곡-제9번-신세계로부터-제4악장']
         }
     ]
 
@@ -240,7 +240,7 @@ def create_image_mapping():
         '알-디-메올라-그랜드-패션': '6. 듀오-하진진호.jpg',
         '마누엘-드-파야-허무한-인생-중-스페인-춤곡-제1번': '6. 듀오-하진진호.jpg',
         '이삭-알베니스-카스티야': '6. 듀오-하진진호.jpg',
-        '안토닌-드보르자크-교향곡-제9번-신세계로부터-제-4악장': '7. 5중주.jpg'
+        '안토닌-드보르자크-교향곡-제9번-신세계로부터-제4악장': '7. 5중주.jpg'
     }
 
 
@@ -388,7 +388,7 @@ def create_piece_to_id_mapping():
         '알 디 메올라, 그랜드 패션': '알-디-메올라-그랜드-패션',
         '마누엘 드 파야, 《허무한 인생》 중 스페인 춤곡 제1번': '마누엘-드-파야-허무한-인생-중-스페인-춤곡-제1번',
         '이삭 알베니스, 카스티야': '이삭-알베니스-카스티야',
-        '안토닌 드보르자크, 교향곡 제9번 "신세계로부터" 제 4악장': '안토닌-드보르자크-교향곡-제9번-신세계로부터-제-4악장'
+        '안토닌 드보르자크, 교향곡 제9번 "신세계로부터" 제4악장': '안토닌-드보르자크-교향곡-제9번-신세계로부터-제4악장'
     }
 
 
@@ -453,18 +453,18 @@ def create_image_mapping_en():
 def create_piece_to_id_mapping_en():
     """영어 곡목을 프로그램 노트 ID로 매핑하는 사전을 생성합니다."""
     return {
-        'Gioachino Rossini, Overture to "La Gazza Ladra"': 'gioachino-rossini-overture-to-la-gazza-ladra',
-        'Johann Sebastian Bach, Toccata and Fugue in D minor (BWV 565)': 'johann-sebastian-bach-toccata-and-fugue-in-d-minor-bwv-565',
-        'Jorge Cardoso, Milonga': 'jorge-cardoso-milonga',
-        'Maurice Ravel, Pavane for a Dead Princess': 'maurice-ravel-pavane-for-a-dead-princess',
-        'Fernando Sor, Introduction and Variations on a Theme by Mozart': 'fernando-sor-introduction-and-variations-on-a-theme-by-mozart',
-        'English Folk Song / Francis Cutting, Greensleeves': 'english-folk-song-francis-cutting-greensleeves',
-        'Franz Schubert, "Winterreise" - 1. Gute Nacht': 'franz-schubert-winterreise-1-gute-nacht',
-        'Heitor Villa-Lobos, Bachianas Brasileiras No.5, 1. Aria': 'heitor-villa-lobos-bachianas-brasileiras-no5-1-aria',
-        'Al Di Meola, The Grande Passion': 'al-di-meola-the-grande-passion',
-        'Manuel de Falla, Spanish Dance No.1 from "La Vida Breve"': 'manuel-de-falla-spanish-dance-no1-from-la-vida-breve',
-        'Isaac Albéniz, Castilla': 'isaac-albeniz-castilla',
-        'Antonín Dvořák, Symphony No.9 "From the New World", IV. Finale: Allegro con fuoco': 'antonin-dvorak-symphony-no9-from-the-new-world-iv-finale-allegro-con-fuoco'
+        'Gioachino Rossini, Overture to "La Gazza Ladra"': 'gioachino-rossini-1792-1868-overture-to-la-gazza-ladra',
+        'Johann Sebastian Bach, Toccata and Fugue in D minor (BWV 565)': 'johann-sebastian-bach-1685-1750-toccata-and-fugue-in-d-minor-bwv-565',
+        'Jorge Cardoso, Milonga': 'jorge-cardoso-1949-milonga-from-24-piezas-sudamericanas',
+        'Maurice Ravel, Pavane for a Dead Princess': 'maurice-ravel-1875-1937-pavane-pour-une-infante-dfunte',
+        'Fernando Sor, Introduction and Variations on a Theme by Mozart': 'fernando-sor-1778-1839-introduction-and-variations-on-a-theme-by-mozart-op9',
+        'English Folk Song / Francis Cutting, Greensleeves': 'anon-francis-cutting-c1550-1596-greensleeves',
+        'Franz Schubert, "Winterreise" - 1. Gute Nacht': 'franz-schubert-1797-1828-winterreise-op89-d911-1-gute-nacht',
+        'Heitor Villa-Lobos, Bachianas Brasileiras No.5, 1. Aria': 'heitor-villa-lobos-1887-1959-bachianas-brasileiras-no5-1-aria-cantilena',
+        'Al Di Meola, The Grande Passion': 'al-di-meola-1954-the-grande-passion',
+        'Manuel de Falla, Spanish Dance No.1 from "La Vida Breve"': 'manuel-de-falla-18761946-spanish-dance-no1-from-la-vida-breve',
+        'Isaac Albéniz, Castilla': 'isaac-albniz-1860-1909-castilla-seguidillas-from-suite-espaola-op47',
+        'Antonín Dvořák, Symphony No.9 "From the New World", IV. Finale: Allegro con fuoco': 'antonn-dvok-1841-1904-symphony-no9-in-e-minor-from-the-new-world-op95-iv-finale-allegro-con-fuoco'
     }
 
 
@@ -699,7 +699,7 @@ def update_html_template(template_content, notes, invitation_content=None, membe
     
     # 프로그램 노트 섹션 찾기 및 교체
     if is_english:
-        program_notes_pattern = r'(<section id="program-notes"[^>]*>.*?<h2>Program Notes</h2>)(.*?)(</section>)'
+        program_notes_pattern = r'(<section id="program-notes"[^>]*>.*?<h2>Programme Notes</h2>)(.*?)(</section>)'
     else:
         program_notes_pattern = r'(<section id="program-notes"[^>]*>.*?<h2>곡 해설</h2>)(.*?)(</section>)'
     
@@ -718,7 +718,7 @@ def update_html_template(template_content, notes, invitation_content=None, membe
     # 프로그램 섹션 교체
     if program:
         if is_english:
-            program_pattern = r'(<section id="program"[^>]*>.*?<h2>Program</h2>)(.*?)(</section>)'
+            program_pattern = r'(<section id="program"[^>]*>.*?<h2>Programme</h2>)(.*?)(</section>)'
         else:
             program_pattern = r'(<section id="program"[^>]*>.*?<h2>순서</h2>)(.*?)(</section>)'
         
