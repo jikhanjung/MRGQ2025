@@ -624,7 +624,7 @@ def parse_markdown_content(markdown_content):
                         if re.match(r'!\[.*?\]\(.*?\)', para.strip()):
                             # 포스터 이미지 처리
                             image_html = re.sub(r'!\[(.*?)\]\((.*?)\)', 
-                                             r'<div style="text-align: center; margin: 20px 0;"><img src="\2" alt="\1" style="max-width: 400px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"></div>', 
+                                             r'<div style="text-align: center; margin: 20px 0;"><img src="\2" alt="\1" class="poster-image" onclick="openModal(this)"></div>', 
                                              para.strip())
                             html_parts.append(image_html)
                         # 포스터 정보만 가운데 정렬 처리 (연속된 **텍스트** 줄들)
@@ -663,7 +663,7 @@ def parse_markdown_content(markdown_content):
                         if re.match(r'!\[.*?\]\(.*?\)', para.strip()):
                             # 포스터 이미지 처리
                             image_html = re.sub(r'!\[(.*?)\]\((.*?)\)', 
-                                             r'<div style="text-align: center; margin: 20px 0;"><img src="\2" alt="\1" style="max-width: 400px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"></div>', 
+                                             r'<div style="text-align: center; margin: 20px 0;"><img src="\2" alt="\1" class="poster-image" onclick="openModal(this)"></div>', 
                                              para.strip())
                             html_parts.append(image_html)
                         # 포스터 정보만 가운데 정렬 처리 (연속된 **텍스트** 줄들)

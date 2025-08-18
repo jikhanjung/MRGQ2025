@@ -1,4 +1,4 @@
-<!-- 자동 생성됨: 2025-08-14 20:45:45 -->
+<!-- 자동 생성됨: 2025-08-18 16:39:26 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,6 +81,106 @@
             border-radius: 0.625rem; /* 10px */
             box-shadow: 0 0.25rem 1.25rem rgba(59, 130, 246, 0.1);
             backdrop-filter: blur(10px);
+        }
+        
+        /* Modal styles for fullscreen image */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .modal-close:hover,
+        .modal-close:focus {
+            color: #bbb;
+        }
+        
+        /* Poster image styles */
+        .poster-image {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .poster-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Responsive poster sizing */
+        @media (min-width: 768px) {
+            .poster-image {
+                max-width: 500px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .poster-image {
+                max-width: 600px;
+            }
+        }
+        
+        @media (min-width: 1440px) {
+            .poster-image {
+                max-width: 700px;
+            }
+        }
+        
+        /* Map image styles */
+        .map-image {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Responsive map sizing */
+        @media (min-width: 768px) {
+            .map-image {
+                max-width: 700px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .map-image {
+                max-width: 800px;
+            }
+        }
+        
+        @media (min-width: 1440px) {
+            .map-image {
+                max-width: 900px;
+            }
         }
         
         /* Add extra margin-top to first section after navigation */
@@ -440,7 +540,7 @@
         <section id="poster" class="container">
             <h2>Poster</h2>
             <div class="note">
-<div style="text-align: center; margin: 20px 0;"><img src="MRGQ2025Poster.jpg" alt="Miryeon2025 Poster" style="max-width: 400px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"></div>
+<div style="text-align: center; margin: 20px 0;"><img src="MRGQ2025Poster.jpg" alt="Miryeon2025 Poster" class="poster-image" onclick="openModal(this)"></div>
 <div style="margin: 20px 0;"><p style="margin: 5px 0; font-weight: bold; text-align: center;">Cho Yuran</p><p style="margin: 5px 0; font-weight: bold; text-align: center;"><The Unseen Sees></p><p style="margin: 5px 0; font-weight: bold; text-align: center;">Oil on canvas</p><p style="margin: 5px 0; font-weight: bold; text-align: center;">90.9 x 72.7cm</p><p style="margin: 5px 0; font-weight: bold; text-align: center;">2025</p></div>
 <p>Artist Cho Yuran, who has watched over Miryeon throughout her life, created this work <strong><The Unseen Sees></strong> for 《Miryeon 2025》.</p>
 <p>A blue tiger leaping from the guitar's sound hole, a giant blue eye looking down upon it - while the tiger is a figure of fear, the unidentified gaze without face or body is an even greater terror that overwhelms the tiger. This work expresses the tension and overwhelming emotions flowing between the two, interpreting the impressions of 《Miryeon 2025》's performance pieces through the artist's visual language.</p>
@@ -452,9 +552,9 @@
             <h2>Directions</h2>
             
             <div class="note">
-                <h3>SCC Hall Seocho(Across from Seoul Arts Center)</h3>
+                <h3>SCC Hall Seocho(Across from Seoul Arts Center), 3rd Floor, 9 Nambusunhwan-ro 325-gil, Seocho-gu, Seoul</h3>
                 <div style="text-align: center; margin: 20px 0;">
-                    <img src="SCCMap2025.png" alt="SCC Hall Directions Map" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <img src="SCCMap2025.png" alt="SCC Hall Directions Map" class="map-image">
                 </div>
                 <p style="text-align: center; margin-top: 15px; color: #666; font-style: italic;">
                     8-minute walk from Exit 5 of Nambu Terminal Station (Line 3)
@@ -870,6 +970,32 @@
                 });
             });
         });
+        
+        // Modal functions for poster
+        function openModal(img) {
+            var modal = document.getElementById('imageModal');
+            var modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+        }
+        
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+        
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
     </script>
+    
+    <!-- Modal for fullscreen image -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
 </body>
 </html>
