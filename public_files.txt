@@ -1,0 +1,14 @@
+# www.mrgq.org/2025/ 에 올릴 파일 목록 (이 저장소 루트 기준)
+# 사용 예: rsync -av --files-from=<(grep -v '^#' public_files.txt) ./ <서버>:<웹루트>/2025/
+index.html
+index_kr.html
+index_en.html
+MRGQ2025Poster.jpg
+SCCMap2025.png
+1. 4중주.jpg
+2. 3중주.jpg
+3. 듀오-은석예진.jpg
+4. 솔로-진호.jpg
+5. 듀오-예완예진.jpg
+6. 듀오-하진진호.jpg
+7. 5중주.jpg

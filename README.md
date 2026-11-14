@@ -50,3 +50,8 @@ MRGQ2025/
 ---
 
 © 2025 클래식기타 중주단 미련. All rights reserved.
+## 🌐 배포 (www.mrgq.org/2025/)
+
+이 사이트는 https://www.mrgq.org/2025/ 하위 경로에서 서비스됩니다. 모든 링크·이미지는 상대 경로이고, 상단 메뉴의 "홈"/"Home" 은 `../` (mrgq.org 첫 화면) 으로 갑니다.
+공개할 파일은 `public_files.txt` 에 적힌 것만입니다 (md·스크립트·템플릿·백업 HTML 등은 올리지 않음).
+`index_kr.html`·`index_en.html` 은 `generate_html.py` 가 `template*.html` + md 파일로 만들므로, 고칠 때는 템플릿/ md 를 고친 뒤 다시 생성합니다.
